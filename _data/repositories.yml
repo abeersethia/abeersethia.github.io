@@ -1,11 +1,10 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - abeersethia
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
+  - abeersethia/Hippocampal_Volume_Quantification_in_Alzheimers_Progression
   - jekyll/jekyll
   - twbs/bootstrap
   - jquery/jquery
