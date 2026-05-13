@@ -27,6 +27,6 @@ latest_posts:
 
 Hey there! I am an undergraduate student at [Manipal Institute of Technology, Manipal](https://www.manipal.edu/mit.html), pursuing a Data Science and Engineering degree with a minor in Multimodal Intelligent Systems under the Department of Computer Science.
 
-I'm interested in the intersection of computer vision, and physics-based learning models in the context of medical (and more specifically, surgical) robots informed and guided by medical imaging.
+My focus spans mathematical, computer science, and biologica interests, converging into applications in medical imaging, registration, reconstruction, deploying inference systems, and translating research into working pipelines. My goal is to contribute to the intersection of all the above-mentioned topics, making advancements in medical diagnostics and disease understanding while also developing robust solutions that mitigate the risks associated with digital manipulation in various domains, including healthcare and beyond.
 
 </details>
