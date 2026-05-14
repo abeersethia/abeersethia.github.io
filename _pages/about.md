@@ -31,4 +31,4 @@ I have worked extensively across computer vision, medical imaging, and deep lear
 
 My experience includes building clinical-grade segmentation systems for CT/MRI imaging, developing self-supervised ultrasound registration, pose estimation and 3D reconstruction models, and reconstructing nonlinear dynamical systems using deep learning and topology-preserving losses. My goal is to contribute to the intersection of all the above-mentioned topics, making advancements in medical diagnostics and disease understanding while also developing robust solutions that mitigate the risks associated with digital manipulation in various domains, including healthcare and beyond.
 
-Always happy to connect with curious minds! Feel free to reach out on email: abeersethia3105 [at] gmail [dot] com or abeer [dot] mitmpl2022 [at] learner [dot] manipal [dot] edu :mailbox: 
+Feel free to reach out on email: abeersethia3105 [at] gmail [dot] com :mailbox: 
