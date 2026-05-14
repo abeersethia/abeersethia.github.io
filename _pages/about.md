@@ -12,17 +12,17 @@ profile:
     <p>Bengaluru, India</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
 
 announcements:
   enabled: true # includes a list of news items
-  scrollable: false # adds a vertical scroll bar if there are more than 3 news items
-  limit: 2 # leave blank to include all the news in the `_news` folder
+  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
+  limit: # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: false
+  enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 2 # leave blank to include all the blog posts
+  limit: # leave blank to include all the blog posts
 ---
 
 Hey there! I am an undergraduate student at [Manipal Institute of Technology, Manipal](https://www.manipal.edu/mit.html), pursuing a Data Science and Engineering degree with a minor in Multimodal Intelligent Systems under the Department of Computer Science.
