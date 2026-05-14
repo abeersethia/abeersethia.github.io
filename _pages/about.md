@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: computer vision and medical imaging focused data science engineer 
+subtitle: computer vision and medical imaging focused data science engineer and researcher
 
 profile:
   align: right
