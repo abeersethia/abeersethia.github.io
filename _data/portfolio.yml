@@ -19,9 +19,6 @@ nav:
   cta:
     label: Resume
     url: /assets/pdf/AbeerSethia_Resume.pdf
-  contact:
-    label: Contact
-    url: /#contact
 
 cta:
   title: Contact

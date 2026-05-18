@@ -1,0 +1,51 @@
+{% comment %}
+  Renders a timeline period for one journey entry.
+  Supports (pick one style per entry):
+
+  1) date: "May 2024 — Aug 2024"           # single line, any text
+  2) from: "May 2024"  to: "Present"      # start/end strings (months OK)
+  3) from_month + from_year (+ to_month, to_year, or to_present: true)
+     — month as Jan–Dec, full name (May), or number 1–12
+{% endcomment %}
+{% assign e = include.entry %}
+{% assign month_names = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %}
+
+{% if e.date != blank %}
+  {{- e.date -}}
+{% else %}
+  {% capture start_label %}{% endcapture %}
+  {% if e.from != blank %}
+    {% assign start_label = e.from %}
+  {% elsif e.from_year %}
+    {% assign fm = e.from_month | append: "" | strip %}
+    {% if fm.size <= 2 %}
+      {% assign mi = e.from_month | minus: 1 %}
+      {% assign start_label = month_names[mi] | append: " " | append: e.from_year %}
+    {% else %}
+      {% assign start_label = fm | append: " " | append: e.from_year %}
+    {% endif %}
+  {% endif %}
+
+  {% capture end_label %}{% endcapture %}
+  {% if e.to_present or e.end_present %}
+    {% assign end_label = "Present" %}
+  {% elsif e.to != blank %}
+    {% assign end_label = e.to %}
+  {% elsif e.to_year %}
+    {% assign tm = e.to_month | append: "" | strip %}
+    {% if tm.size <= 2 %}
+      {% assign ti = e.to_month | minus: 1 %}
+      {% assign end_label = month_names[ti] | append: " " | append: e.to_year %}
+    {% else %}
+      {% assign end_label = tm | append: " " | append: e.to_year %}
+    {% endif %}
+  {% endif %}
+
+  {% if start_label != blank and end_label != blank %}
+    {{- start_label }} – {{ end_label -}}
+  {% elsif start_label != blank %}
+    {{- start_label -}}
+  {% elsif end_label != blank %}
+    {{- end_label -}}
+  {% endif %}
+{% endif %}

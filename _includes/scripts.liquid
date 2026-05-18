@@ -381,6 +381,9 @@
 {% if page.url == '/projects/' or page.permalink == '/projects/' %}
   <script defer src="{{ '/assets/js/projects-filter.js' | relative_url }}"></script>
 {% endif %}
+{% if page.url == '/journey/' or page.permalink == '/journey/' %}
+  <script defer src="{{ '/assets/js/journey-filter.js' | relative_url }}"></script>
+{% endif %}
 {% if page.layout == 'case-study' %}
   <script defer src="{{ '/assets/js/bootstrap-toc.min.js' | relative_url | bust_file_cache }}"></script>
   <script defer src="{{ '/assets/js/case-study-toc.js' | relative_url }}"></script>

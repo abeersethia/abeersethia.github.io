@@ -3,8 +3,23 @@ permalink: /assets/js/projects-filter.js
 ---
 /**
  * Client-side project grid filters (no page reload).
+ * Supports deep links: /projects/#research
  */
 (function () {
+  function applyProjectFilter(filter, buttons, cards) {
+    buttons.forEach((b) => {
+      b.classList.toggle("is-active", b.getAttribute("data-filter") === filter);
+    });
+
+    cards.forEach((card) => {
+      const col = card.closest(".col");
+      if (!col) return;
+      const category = card.getAttribute("data-category") || "";
+      const show = filter === "all" || category === filter;
+      col.classList.toggle("is-filtered-out", !show);
+    });
+  }
+
   function initProjectFilters() {
     const grid = document.getElementById("projects-grid");
     if (!grid) return;
@@ -17,18 +32,17 @@ permalink: /assets/js/projects-filter.js
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const filter = btn.getAttribute("data-filter");
-
-        buttons.forEach((b) => b.classList.toggle("is-active", b === btn));
-
-        cards.forEach((card) => {
-          const col = card.closest(".col");
-          if (!col) return;
-          const category = card.getAttribute("data-category") || "";
-          const show = filter === "all" || category === filter;
-          col.classList.toggle("is-filtered-out", !show);
-        });
+        applyProjectFilter(filter, buttons, cards);
       });
     });
+
+    const hash = window.location.hash.replace(/^#/, "");
+    if (hash) {
+      const match = Array.from(buttons).find((b) => b.getAttribute("data-filter") === hash);
+      if (match) {
+        applyProjectFilter(hash, buttons, cards);
+      }
+    }
   }
 
   if (document.readyState === "loading") {

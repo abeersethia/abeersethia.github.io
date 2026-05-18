@@ -1,0 +1,47 @@
+{% assign entry = include.entry %}
+{% capture period %}{% include journey-date.liquid entry=entry %}{% endcapture %}
+{% include journey-entry-preview.liquid entry=entry %}
+
+{% assign has_expandable = false %}
+{% if journey_has_more %}
+  {% assign has_expandable = true %}
+{% endif %}
+
+<li class="journey-entry journey-entry--nested">
+  <div class="journey-entry__track">
+    <div class="journey-entry__rail" aria-hidden="true">
+      <span class="journey-entry__dot"></span>
+    </div>
+
+    <div class="journey-entry__panel{% unless has_expandable %} journey-entry__panel--static{% endunless %}">
+      <div class="journey-entry__main">
+        <h3 class="journey-entry__title">{{ entry.title }}</h3>
+        {% if entry.org != blank or period != blank %}
+          <p class="journey-entry__meta">
+            {% if entry.org != blank %}<span class="journey-entry__org">{{ entry.org }}</span>{% endif %}
+            {% if entry.org != blank and period != blank %}<span class="journey-entry__sep" aria-hidden="true">•</span>{% endif %}
+            {% if period != blank %}<span class="journey-entry__period">{{ period }}</span>{% endif %}
+          </p>
+        {% endif %}
+
+        {% if has_expandable %}
+          {% if journey_preview_md != blank %}
+            <div class="journey-entry__preview markdown-body">{{ journey_preview_md | markdownify }}</div>
+          {% endif %}
+          <details class="journey-entry__details"{% if entry.open %} open{% endif %}>
+            <summary class="journey-entry__more-btn">
+              {% include journey-entry-toggle.liquid %}
+            </summary>
+            <div class="journey-entry__body">
+              {% include journey-entry-body.liquid entry=entry remainder=journey_remainder_md %}
+            </div>
+          </details>
+        {% else %}
+          {% if journey_full_md != blank %}
+            <div class="journey-entry__summary markdown-body">{{ journey_full_md | markdownify }}</div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</li>

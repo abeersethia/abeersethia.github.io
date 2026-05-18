@@ -1,0 +1,29 @@
+{% comment %}
+  Renders a journey timeline org logo. Resolves paths under assets/img/ automatically.
+{% endcomment %}
+{% assign entry = include.entry %}
+{% if entry.logo and entry.logo != blank %}
+  {% assign logo_path = entry.logo | strip %}
+  {% if logo_path contains '://' %}
+    {% assign logo_src = logo_path %}
+  {% elsif logo_path contains 'assets/img/' %}
+    {% assign logo_src = logo_path | relative_url %}
+  {% else %}
+    {% assign logo_src = logo_path | prepend: 'assets/img/' | relative_url %}
+  {% endif %}
+  <span class="journey-entry__logo-wrap">
+    <img
+      class="journey-entry__logo"
+      src="{{ logo_src }}"
+      alt=""
+      width="40"
+      height="40"
+      loading="lazy"
+      decoding="async"
+    >
+  </span>
+{% else %}
+  <span class="journey-entry__logo journey-entry__logo--fallback" aria-hidden="true">
+    {% if entry.org %}{{ entry.org | slice: 0 }}{% else %}•{% endif %}
+  </span>
+{% endif %}

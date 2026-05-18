@@ -1,0 +1,115 @@
+# Journey timeline — edit entries below.
+#
+# category: research | industry | education  (used by filter tabs)
+# Each entry: title, org, summary, logo (root only), dates, optional children
+# preview: optional short line shown before expanding (auto: first paragraph if omitted)
+# logo: institutions/name.png  (under assets/img/)  — or /assets/img/institutions/name.png
+#
+# Dates:
+#   from: "September 2024"   to: "Present"
+#   from_month: 5             from_year: 2024   to_month: 8   to_year: 2024
+#   date: "June 2024 – Present"
+
+intro: Research, internships, and education in medical imaging and machine learning.
+
+filters:
+  - id: all
+    label: All
+  - id: education
+    label: Education
+  - id: industry
+    label: Industry
+  - id: research
+    label: Research
+  - id: projects
+    label: Projects
+
+entries:
+  - category: research
+    title: Research Intern - AI (Bachelor Thesis)
+    org: Indian Institute of Science, Bangalore
+    logo: institutions/iisc.png
+    from: "December 2025"
+    to_present: true
+    summary: |
+      Project - "Self-Supervised Temporal Ultrasound Pose Estimation under Limited Pose Supervision for Trackerless Freehand 3D Reconstruction"
+
+      - Supervised by [Dr. Manish Arora](https://dm.iisc.ac.in/utsaah/dr-manish-arora/) and [Ms. Saladi Pravallika (PMRF)](https://dm.iisc.ac.in/utsaah/saladi-pravallika/)
+      - Python, OpenCV, PyTorch, 3D-Slicer, Weights & Biases, and [more](/projects/#research).
+    open: false
+
+  - category: projects
+    title: Summer Project Intern
+    org: CfHE, IIT Hyderabad
+    logo: institutions/iit-hyderabad.png
+    from_month: June
+    from_year: 2025
+    to_month: July
+    to_year: 2025
+    summary: Dysgraphia handwriting analysis pipeline design leveraging computer vision and machine learning techniques
+
+
+  - category: research
+    title: Research Intern
+    org: KLIV Lab, IIT Kharagpur
+    logo: institutions/iit-kharagpur.png
+    from_month: April
+    from_year: 2025
+    to_month: October
+    to_year: 2025
+    summary: |
+      Project - "“Reconstruction of Time Series Data from Attractor Manifold using Temporal Convolutional Neural Network”
+
+      - Supervised by [Dr. Debdoot Sheet](https://facweb.iitkgp.ac.in/~debdoot/),and [Mr. Dipayan Dewan](https://scholar.google.com/citations?user=nUlXiXoAAAAJ&hl=en)
+      - Python, Signal Processing, Temporal CNNs, Non-Dynamical Systems and [more](/projects/#research).
+    open: false
+
+  - category: industry
+    title: Clinical Diagnostics Project Intern
+    org: Philips 
+    logo: institutions/philips.svg
+    from_month: April
+    from_year: 2025
+    to_month: July
+    to_year: 2025
+    summary: |
+      Project - "Expert-Guided Automated Segmentations of Liver Lesions in CT/MRI Imaging"
+
+      - Supervised by [Dr. Rajagopal KV](https://www.manipal.edu/kmc-manipal/department-faculty/faculty-list/rajagopal-kv/_jcr_content.html) and [Dr. Dinesh Mysore Siddu](https://www.linkedin.com/in/dinesh-mysore-siddu-4119113/)
+      - ITK Snap, 3D Slicer, Python, PyTorch, and [more](/projects/#industry).
+    open: false
+
+  - category: education
+    title: B.Tech Data Science & Engineering
+    org: Manipal Institute of Technology
+    logo: institutions/manipal.png
+    from_month: August
+    from_year: 2022
+    to_month: August
+    to_year: 2026
+    summary: |
+      - A+ In Minor In Multimodal Intelligent Systems - Project: DropEdge++ with Johnson–Lindenstrauss Projection under the guidance of Dr. Poornima Panduranga Kundapur
+      - B.Tech Thesis at IISc Bangalore - Advisors: Prof. Manish Arora and Ms. Saladi Pravallika (PMRF)
+      - Expertise Head of Biotechnology Domain for Research Society Manipal.
+      - Data Analyst Junior Board Member - IAESTE LC Manipal
+      - Management Committee - IEEE EMBS
+      - Organising Committee Member - TechTatva: M# (Manipal Hackathon)
+      - Core Committee Member - TechTatva: M# (Manipal Hackathon)
+
+  - category: education
+    title: Class IX - XII
+    org: Delhi Public School, Bangalore North
+    logo: institutions/dps.png
+    date: 2018 - 2022
+    summary: |
+      Physics, Chemistry, Mathematics, and Biology.
+      - Explored biomedical applications in optometry and cardiology under the mentorship of a postdoctoral researcher at Massachusetts Institute of Technology and Delhi Public School Bangalore North.
+      - Fundraised slightly over ₹50,000 for causes like Cancer Research as well as education for young girls
+
+  - category: education
+    title: Primary School - Class VIII (Elementary School)
+    org: Vibgyor High
+    logo: institutions/vibgyor.png
+    date: 2008 - 2018
+    summary: |
+      IMO, IEO, NCO Gold, Medalist (School Level) for 3 consecutive years, 1st place in 65+ inter-school skating competitions, 3rd place Open District Professional Inline Skating, 1st place in 10+ music and swimming competitions, 1st place in Viva Spelling Bee Championship.

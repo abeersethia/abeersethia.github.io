@@ -1,0 +1,10 @@
+{% assign journey = site.data.journey %}
+{% if journey.entries and journey.entries.size > 0 %}
+  <div class="journey-timeline-wrap">
+    <ol class="journey-timeline" id="journey-timeline" aria-label="Experience timeline">
+      {% for entry in journey.entries %}
+        {% include journey-entry.liquid entry=entry %}
+      {% endfor %}
+    </ol>
+  </div>
+{% endif %}

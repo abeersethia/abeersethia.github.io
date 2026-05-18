@@ -115,12 +115,6 @@
           {% endfor %}
 
           {% assign pf = site.data.portfolio %}
-          {% if pf.nav.contact %}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ pf.nav.contact.url | relative_url }}">{{ pf.nav.contact.label }}</a>
-            </li>
-          {% endif %}
-
           {% if pf.nav.cta %}
             <li class="nav-item nav-item--cta d-none d-md-flex align-items-center">
               <a

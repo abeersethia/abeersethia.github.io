@@ -1,0 +1,81 @@
+{% comment %}
+  Sets journey_preview_md, journey_remainder_md, and journey_has_more for the parent include scope.
+  Optional entry.preview in YAML; otherwise first paragraph or first bullet line.
+{% endcomment %}
+{% assign entry = include.entry %}
+{% assign journey_preview_md = entry.preview | default: '' | strip %}
+{% assign journey_remainder_md = '' %}
+{% assign journey_has_more = false %}
+{% assign journey_full_md = entry.summary | default: '' | strip %}
+
+{% if journey_full_md != blank %}
+  {% if entry.preview != blank %}
+    {% if journey_full_md != journey_preview_md %}
+      {% assign journey_remainder_md = journey_full_md %}
+      {% assign journey_has_more = true %}
+    {% endif %}
+  {% else %}
+    {% if journey_full_md contains '
+
+' %}
+      {% assign journey_nl_parts = journey_full_md | split: '
+
+' %}
+      {% assign journey_preview_md = journey_nl_parts | first | strip %}
+      {% if journey_nl_parts.size > 1 %}
+        {% assign journey_has_more = true %}
+        {% for part in journey_nl_parts %}
+          {% unless forloop.first %}
+            {% assign part_stripped = part | strip %}
+            {% if part_stripped != '' %}
+              {% if journey_remainder_md != '' %}
+                {% assign journey_remainder_md = journey_remainder_md | append: '
+
+' | append: part_stripped %}
+              {% else %}
+                {% assign journey_remainder_md = part_stripped %}
+              {% endif %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+    {% else %}
+      {% assign journey_lines = journey_full_md | split: '
+' %}
+      {% assign journey_nonempty_count = 0 %}
+      {% for line in journey_lines %}
+        {% if line | strip != '' %}
+          {% assign journey_nonempty_count = journey_nonempty_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+
+      {% if journey_nonempty_count > 1 %}
+        {% assign journey_has_more = true %}
+        {% assign journey_line_index = 0 %}
+        {% for line in journey_lines %}
+          {% assign line_stripped = line | strip %}
+          {% if line_stripped != '' %}
+            {% if journey_line_index == 0 %}
+              {% assign journey_preview_md = line_stripped %}
+            {% else %}
+              {% assign journey_remainder_md = journey_remainder_md | append: line | append: '
+' %}
+            {% endif %}
+            {% assign journey_line_index = journey_line_index | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% assign journey_remainder_md = journey_remainder_md | strip %}
+      {% else %}
+        {% assign journey_preview_md = journey_full_md %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% if entry.description != blank and entry.description != entry.summary %}
+  {% assign journey_has_more = true %}
+{% endif %}
+
+{% if entry.children and entry.children.size > 0 %}
+  {% assign journey_has_more = true %}
+{% endif %}

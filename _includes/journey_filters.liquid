@@ -1,0 +1,14 @@
+{% assign filters = site.data.journey.filters %}
+{% if filters and filters.size > 0 %}
+  <div class="project-filters journey-filters" role="toolbar" aria-label="Filter journey">
+    {% for f in filters %}
+      <button
+        type="button"
+        class="project-filters__btn{% if forloop.first %} is-active{% endif %}"
+        data-journey-filter="{{ f.id }}"
+      >
+        {{ f.label }}
+      </button>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -1,0 +1,20 @@
+{% assign entry = include.entry %}
+{% assign body_md = include.remainder | default: '' | strip %}
+
+{% if body_md == blank and entry.summary != blank %}
+  {% assign body_md = entry.summary | strip %}
+{% endif %}
+
+{% if body_md != blank %}
+  <div class="journey-entry__summary markdown-body">{{ body_md | markdownify }}</div>
+{% endif %}
+{% if entry.description != blank and entry.description != entry.summary %}
+  <div class="journey-entry__extra markdown-body">{{ entry.description | markdownify }}</div>
+{% endif %}
+{% if entry.children and entry.children.size > 0 %}
+  <ol class="journey-timeline journey-timeline--nested">
+    {% for child in entry.children %}
+      {% include journey-entry-nested.liquid entry=child %}
+    {% endfor %}
+  </ol>
+{% endif %}
