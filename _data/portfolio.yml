@@ -40,8 +40,9 @@ stack:
   - Git
 
 current_focus:
-  - Trackerless Pose Estimation and 3D Reconstruction from B-Mode Ultrasound Image Sequences
-  - Federated Learning for Medical Image Analysis
+  - Work at IISc - Trackerless Pose Estimation and 3D Reconstruction from B-Mode Ultrasound Image Sequences
+  - Personal (Ongoing) - Federated Learning for Medical Image Analysis
+  - Personal (Ongoing) - Portfolio Website
 
 project_filters:
   - id: all
