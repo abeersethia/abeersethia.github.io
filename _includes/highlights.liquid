@@ -1,0 +1,20 @@
+{% assign items = site.data.portfolio.highlights %}
+{% if items and items.size > 0 %}
+  <section class="highlights-section" id="highlights" aria-label="Collaboration highlights">
+    <h2 class="section-eyebrow">Collaboration highlights</h2>
+    {% include doss-line.liquid %}
+    <div class="highlights-grid">
+      {% for item in items %}
+        <blockquote class="highlight-card">
+          <p class="highlight-card__text">{{ item.text }}</p>
+          <footer class="highlight-card__footer">
+            <cite class="highlight-card__source">{{ item.institution }}</cite>
+            {% if item.byline %}
+              <span class="highlight-card__byline">{{ item.byline }}</span>
+            {% endif %}
+          </footer>
+        </blockquote>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

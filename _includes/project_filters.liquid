@@ -1,0 +1,14 @@
+{% assign filters = site.data.portfolio.project_filters %}
+{% if filters and filters.size > 0 %}
+  <div class="project-filters" role="toolbar" aria-label="Filter projects">
+    {% for f in filters %}
+      <button
+        type="button"
+        class="project-filters__btn{% if forloop.first %} is-active{% endif %}"
+        data-filter="{{ f.id }}"
+      >
+        {{ f.label }}
+      </button>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -1,29 +1,25 @@
 <header>
   <!-- Nav Bar -->
-  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
-    <div class="container">
-      {% if page.permalink != '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- site.title -}}
-          {% endif %}
-        </a>
-      {% elsif site.enable_navbar_social %}
-        <!-- Social Icons -->
-        <div class="navbar-brand social">{% social_links %}</div>
-      {% endif %}
+  <nav
+    id="navbar"
+    class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}{% if site.enable_liquid_glass %} navbar--glass{% endif %}"
+    role="navigation"
+  >
+    {% if site.enable_liquid_glass %}
+      <div class="liquidGL liquidGL--navbar">
+        <div class="liquidGL-content container">
+    {% else %}
+      <div class="container">
+    {% endif %}
+      <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
+        {% if site.title == 'blank' %}
+          {% if site.first_name %}{{ site.first_name }}{% endif %}
+          {% if site.middle_name %}{{ site.middle_name }}{% endif %}
+          {% if site.last_name %}{{ site.last_name }}{% endif %}
+        {% else %}
+          {{- site.title -}}
+        {% endif %}
+      </a>
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
@@ -117,8 +113,47 @@
               {% endif %}
             {% endif %}
           {% endfor %}
+
+          {% assign pf = site.data.portfolio %}
+          {% if pf.nav.contact %}
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{{ pf.nav.contact.url | relative_url }}"
+              >
+                {{- pf.nav.contact.label -}}
+              </a>
+            </li>
+          {% endif %}
+
+          {% if site.data.socials.email %}
+            <li class="nav-item d-md-none">
+              <a class="nav-link" href="mailto:{{ site.data.socials.email }}">email</a>
+            </li>
+            <li class="nav-item nav-item--cta d-none d-md-flex align-items-center">
+              <a
+                class="btn-doss btn-doss--ghost btn-doss--nav"
+                href="mailto:{{ site.data.socials.email }}"
+              >
+                Email
+              </a>
+            </li>
+          {% endif %}
+
+          {% if pf.nav.cta %}
+            <li class="nav-item nav-item--cta d-none d-md-flex align-items-center">
+              <a
+                class="btn-doss btn-doss--primary btn-doss--nav"
+                href="{{ pf.nav.cta.url | relative_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{- pf.nav.cta.label -}}
+              </a>
+            </li>
+          {% endif %}
+
           {% if site.search_enabled %}
-            <!-- Search -->
             <li class="nav-item">
               <button id="search-toggle" title="Search" onclick="openSearchModal()">
                 <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
@@ -126,7 +161,6 @@
             </li>
           {% endif %}
           {% if site.enable_darkmode %}
-            <!-- Toogle theme mode -->
             <li class="toggle-container">
               <button id="light-toggle" title="Change theme">
                 <i class="fa-half-sun-moon" id="light-toggle-system"></i>
@@ -137,11 +171,15 @@
           {% endif %}
         </ul>
       </div>
+    {% if site.enable_liquid_glass %}
+        </div>
+      </div>
+    {% else %}
     </div>
+    {% endif %}
   </nav>
   {% if site.enable_progressbar %}
-    <!-- Scrolling Progress Bar -->
-    <progress id="progress" value="0">
+    <progress id="progress" value="0" data-liquid-ignore>
       <div class="progress-container">
         <span class="progress-bar"></span>
       </div>

@@ -1,65 +1,28 @@
 ---
 layout: page
-title: projects
+title: Work
 permalink: /projects/
-description: #expanding on my homepage...
+description: Selected projects in medical imaging, computer vision, and machine learning.
 nav: true
-nav_order: 3
-display_categories: [Personal Projects, Course Projects, Others]
+nav_order: 2
 horizontal: true
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
+{% assign work = site.data.portfolio.pages.work %}
+
+<p class="page-intro">{{ work.intro }}</p>
+
+{% include project_filters.liquid %}
+
+<div class="projects" id="projects-grid">
+{% assign sorted_projects = site.projects | sort: 'importance' | reverse %}
+<div class="container px-0">
+  <div class="row row-cols-1 row-cols-md-2">
     {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
+      {% if project.listed != false %}
+        {% include projects_horizontal.liquid %}
+      {% endif %}
     {% endfor %}
   </div>
-  {% endif %}
-  {% endfor %}
-
-{% else %}
-
-<!-- Display projects without categories -->
-
-{% assign sorted_projects = site.projects | sort: "importance" %}
-
-  <!-- Generate cards for each project -->
-
-{% if page.horizontal %}
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-{% endif %}
+</div>
 </div>

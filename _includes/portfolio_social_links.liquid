@@ -1,0 +1,26 @@
+{% comment %}
+  Reliable hero social row (avoids jekyll-socials crash on misconfigured keys).
+  Configure _data/socials.yml — use github_username, not github.
+{% endcomment %}
+{% assign s = site.data.socials %}
+{% if s.cv_pdf %}
+  <a href="{{ s.cv_pdf | relative_url }}" title="CV (PDF)" target="_blank" rel="noopener noreferrer">
+    <i class="ai ai-cv"></i>
+  </a>
+{% endif %}
+{% if s.email %}
+  <a href="mailto:{{ s.email }}" title="Email">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+{% endif %}
+{% if s.github_username %}
+  <a href="https://github.com/{{ s.github_username }}" title="GitHub" rel="external nofollow noopener" target="_blank">
+    <i class="fa-brands fa-github"></i>
+  </a>
+{% endif %}
+{% if s.linkedin_url %}
+  <a href="{{ s.linkedin_url }}" title="LinkedIn" rel="external nofollow noopener" target="_blank">
+    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+    <span class="sr-only">LinkedIn</span>
+  </a>
+{% endif %}

@@ -18,6 +18,16 @@ layout: default
     {{ content }}
   </article>
 
+  {% if page.url contains '/projects/' and page.url != '/projects/' %}
+    <div class="page-actions">
+      <a class="btn-doss btn-doss--ghost" href="{{ '/projects/' | relative_url }}">← All work</a>
+      {% if page.github %}
+        <a class="btn-doss btn-doss--primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">View code</a>
+      {% endif %}
+    </div>
+    {% include contact-cta.liquid %}
+  {% endif %}
+
   {% if page.related_publications %}
     <h2>References</h2>
     <div class="publications">

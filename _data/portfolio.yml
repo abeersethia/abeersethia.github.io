@@ -1,0 +1,125 @@
+# =============================================================================
+# Portfolio copy, navigation labels, and conversion settings
+# =============================================================================
+
+hero:
+  # One line under the H1 (name): specialization + who you help (above-the-fold clarity).
+  role: Medical imaging & ML — clinical-grade MRI / CT pipelines, segmentation, registration, and volumetry.
+  subtitle: I ship reproducible systems that hold up on real scans—not just leaderboard scores—and document them so collaborators can run and extend them.
+  proof_line: IISc Bangalore · IIT Kharagpur · CfHE IIT Hyderabad · Philips Innovation Campus
+
+buttons:
+  work:
+    label: View case studies
+    url: /projects/
+  cv:
+    label: Download résumé
+    url: /assets/pdf/AbeerSethia_Resume.pdf
+  cv_page:
+    label: Full CV
+    url: /cv/
+
+nav:
+  cta:
+    label: Résumé PDF
+    url: /assets/pdf/AbeerSethia_Resume.pdf
+  contact:
+    label: Contact
+    url: /#contact
+
+cta:
+  title: Ready to collaborate?
+  subtitle: Research internships, medical imaging roles, and ML collaborations in neuroimaging, segmentation, and deployment-minded pipelines.
+  button_label: Email me
+  secondary_label: Download résumé
+  calendly_url: ""
+
+institutions:
+  - name: IISc Bangalore
+    logo: /assets/img/institutions/iisc.png
+  - name: IIT Kharagpur
+    logo: /assets/img/institutions/iit-kharagpur.svg
+  - name: IIT Hyderabad
+    logo: /assets/img/institutions/iit-hyderabad.png
+    logo_color: true
+  - name: Philips
+    logo: /assets/img/institutions/philips.svg
+    logo_color: true
+  - name: Manipal Institute of Technology
+    logo: /assets/img/institutions/manipal.png
+    logo_color: true
+
+stack:
+  - Python
+  - PyTorch
+  - MONAI
+  - ITK / SimpleITK
+  - OpenCV
+  - NumPy
+  - Docker
+  - Git
+
+highlights:
+  - institution: Philips Innovation Campus
+    text: Medical imaging and deep learning in an industry R&D setting focused on real clinical workflows.
+    byline: R&D internship — summary approved for external use; references on request.
+  - institution: IISc Bangalore
+    text: Research on computer vision and medical imaging with emphasis on rigorous evaluation on real data.
+    byline: Visiting / research program — mentor-backed scope.
+  - institution: KLIV Lab, IIT Kharagpur
+    text: Self-supervised registration and representation learning for ultrasound and multimodal imaging.
+    byline: Research affiliate — publication-aligned workstreams.
+
+focus_areas:
+  - label: Medical imaging
+    href: "#pillars"
+  - label: Computer vision
+    href: "#pillar-2"
+  - label: Deep learning
+    href: "#pillar-3"
+  - label: Experience
+    href: "#stats"
+
+pillars_title: What I work on
+
+pillars:
+  - id: pillar-1
+    label: "01"
+    title: Clinical-grade, not leaderboard-only
+    main: Most pipelines stop at benchmark scores. I build segmentation, registration, and reconstruction systems validated on real CT, MRI, and ultrasound—not just public leaderboards.
+    sub: Experience at IISc, IIT Kharagpur, CfHE, and Philips Innovation Campus.
+  - id: pillar-2
+    label: "02"
+    title: Fast to iterate and ship
+    main: From self-supervised ultrasound registration to topology-aware dynamical models, I focus on reproducible training, clear evaluation, and iteration cycles measured in weeks—not months of rework.
+    sub: B.Tech Data Science & Engineering, Manipal Institute of Technology · minor in Multimodal Intelligent Systems.
+  - id: pillar-3
+    label: "03"
+    title: Impact without the noise
+    main: Better diagnostics and trustworthy medical AI—robust to domain shift, documented for collaborators, and mindful of failure modes in healthcare settings.
+    sub: Seeking research collaborations and roles in medical imaging, clinical ML, and computer vision.
+
+stats:
+  - value: "4+"
+    label: Research & industry placements
+  - value: CT · MRI · US
+    label: Imaging modalities
+  - value: IISc · IIT · Philips
+    label: Labs & employers
+
+project_filters:
+  - id: all
+    label: All
+  - id: neuroimaging
+    label: Neuroimaging
+  - id: segmentation
+    label: Segmentation
+  - id: registration
+    label: Registration
+
+pages:
+  work:
+    title: work
+    description: Selected projects in medical imaging, computer vision, and machine learning.
+    intro: |
+      Filter the grid without reloading the page. Each card shows modality, outcome metrics, and a path into the full case study—context, challenge, process, and quantified results.

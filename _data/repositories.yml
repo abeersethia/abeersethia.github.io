@@ -5,9 +5,3 @@ repo_description_lines_max: 2
 
 github_repos:
   - abeersethia/Hippocampal_Volume_Quantification_in_Alzheimers_Progression
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons

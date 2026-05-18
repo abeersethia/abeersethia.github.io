@@ -1,0 +1,12 @@
+{% assign tools = site.data.portfolio.stack %}
+{% if tools and tools.size > 0 %}
+  <section class="stack-strip" id="stack" aria-label="Technical stack">
+    <h2 class="section-eyebrow">Tools & stack</h2>
+    {% include doss-line.liquid %}
+    <ul class="stack-strip__list">
+      {% for tool in tools %}
+        <li class="stack-strip__item">{{ tool }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

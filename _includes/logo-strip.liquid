@@ -1,0 +1,27 @@
+{% assign brands = site.data.portfolio.institutions %}
+{% if brands and brands.size > 0 %}
+  <section class="logo-strip" aria-label="Institutions and employers">
+    {% include doss-line.liquid %}
+    <p class="logo-strip__label">Experience at</p>
+    <ul class="logo-strip__list">
+      {% for brand in brands %}
+        <li class="logo-strip__item">
+          {% if brand.logo %}
+            <span class="logo-strip__icon-wrap">
+              <img
+                src="{{ brand.logo | relative_url }}"
+                alt=""
+                class="logo-strip__img{% if brand.logo_color %} logo-strip__img--color{% else %} logo-strip__img--mono{% endif %}"
+                width="36"
+                height="36"
+                loading="lazy"
+                aria-hidden="true"
+              >
+            </span>
+          {% endif %}
+          <span class="logo-strip__text">{{ brand.name }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

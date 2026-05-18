@@ -9,8 +9,10 @@
   padding-bottom: 3rem;
 
   h1 {
-    color: var(--global-theme-color);
-    font-size: 5rem;
+    color: var(--global-text-color);
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: -0.03em;
   }
 }
 
@@ -136,10 +138,10 @@
     }
 
     &:hover {
-      color: var(--global-theme-color);
+      color: var(--global-hover-color);
 
       .card-title {
-        color: var(--global-theme-color);
+        color: var(--global-hover-color);
       }
     }
   }
@@ -160,7 +162,7 @@
     color: inherit;
 
     &:hover {
-      color: var(--global-theme-color);
+      color: var(--global-hover-color);
       text-decoration: none;
     }
   }

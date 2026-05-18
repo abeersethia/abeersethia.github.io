@@ -1,0 +1,18 @@
+{% assign p = site.data.portfolio %}
+{% assign email = site.data.socials.email %}
+<section class="contact-cta{% if include.compact %} contact-cta--compact{% endif %}" aria-label="Contact">
+  {% unless include.compact %}{% include doss-line.liquid %}{% endunless %}
+  <div class="contact-cta__inner">
+    <div class="contact-cta__text">
+      <h2 class="contact-cta__title">{{ p.cta.title }}</h2>
+      <p class="contact-cta__sub">{{ p.cta.subtitle }}</p>
+    </div>
+    <div class="contact-cta__actions">
+      <a class="btn-doss btn-doss--primary" href="mailto:{{ email }}">{{ p.cta.button_label }}</a>
+      <button type="button" class="btn-doss btn-doss--ghost js-copy-email" data-email="{{ email }}" aria-label="Copy email address">
+        Copy email
+      </button>
+      <a class="btn-doss btn-doss--ghost" href="{{ p.buttons.cv.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ p.cta.secondary_label }}</a>
+    </div>
+  </div>
+</section>

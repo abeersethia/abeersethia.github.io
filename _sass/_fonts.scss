@@ -1,0 +1,43 @@
+/*******************************************************************************
+ * Global font stack and minimalist overrides (Helvetica Neue / Inter)
+ ******************************************************************************/
+
+// Override MDB/Bootstrap defaults (Roboto, Material Design)
+html,
+body,
+button,
+input,
+select,
+textarea,
+.btn,
+.form-control,
+.navbar,
+.navbar-brand,
+.nav-link,
+.dropdown-menu,
+.dropdown-item,
+.card,
+.card-title,
+.card-text,
+.modal,
+.table,
+.badge,
+.alert,
+.pagination,
+.page-link,
+.list-group-item {
+  font-family: var(--global-font-family) !important;
+}
+
+code,
+pre,
+kbd,
+samp,
+.profile .more-info {
+  font-family: var(--global-font-family-mono) !important;
+}
+
+// Flatten Material Design elevation for a cleaner look
+[class*="z-depth"] {
+  box-shadow: none !important;
+}

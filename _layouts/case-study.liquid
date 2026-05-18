@@ -1,0 +1,49 @@
+---
+layout: default
+---
+{% assign p = site.data.portfolio %}
+<div class="post case-study">
+  <header class="case-study__header">
+    <p class="case-study__eyebrow">
+      {% if page.category %}{{ page.category | replace: '-', ' ' }}{% else %}Case study{% endif %}
+    </p>
+    <h1 class="post-title case-study__title">{{ page.title }}</h1>
+    <p class="post-description case-study__lede">{{ page.description }}</p>
+
+    {% if page.metrics %}
+      <ul class="case-study__metrics" aria-label="Project metrics">
+        {% for m in page.metrics %}
+          <li class="case-study__metric">
+            <span class="case-study__metric-value">{{ m.value }}</span>
+            <span class="case-study__metric-label">{{ m.label }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="case-study__header-actions">
+      {% if page.github %}
+        <a class="btn-doss btn-doss--primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">View code</a>
+      {% endif %}
+      <a class="btn-doss btn-doss--ghost" href="{{ p.buttons.cv.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ p.buttons.cv.label }}</a>
+    </div>
+  </header>
+
+  <div class="row case-study__layout">
+    <aside class="col-lg-3 case-study__sidebar-col">
+      <nav id="case-study-toc" class="case-study-toc sticky-top" data-toggle="toc" aria-label="Case study sections"></nav>
+    </aside>
+    <article class="col-lg-9 case-study__body portfolio-markdown">
+      {{ content }}
+    </article>
+  </div>
+
+  <div class="page-actions">
+    <a class="btn-doss btn-doss--ghost" href="{{ '/projects/' | relative_url }}">← All work</a>
+    {% if page.github %}
+      <a class="btn-doss btn-doss--primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">View code</a>
+    {% endif %}
+  </div>
+
+  {% include contact-cta.liquid %}
+</div>

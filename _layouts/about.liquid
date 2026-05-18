@@ -1,80 +1,138 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+{% assign p = site.data.portfolio %}
+<div class="post portfolio-home doss-page">
+  <section class="hero-section">
+    <div class="hero">
+      <div class="hero__text">
+        <h1 class="hero__title">
+          {% if site.title == 'blank' %}
+            {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}
           {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
+            {{ site.title }}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
+        </h1>
+        {% if p.hero.role %}
+          <p class="hero__role">{{ p.hero.role }}</p>
         {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
+        {% if site.enable_liquid_glass %}
+          <div class="liquidGL liquidGL--hero-panel">
+            <div class="liquidGL-content hero__desc-group">
+        {% else %}
+          <div class="hero__desc-group">
+        {% endif %}
+          <p class="hero__desc">{{ p.hero.subtitle }}</p>
+          {% if p.hero.proof_line %}
+            <p class="hero__proof">{{ p.hero.proof_line }}</p>
+          {% endif %}
+          <div class="hero__actions">
+            <a class="btn-doss btn-doss--primary" href="{{ p.buttons.work.url | relative_url }}">{{ p.buttons.work.label }}</a>
+            <a class="btn-doss btn-doss--ghost" href="{{ p.buttons.cv.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ p.buttons.cv.label }}</a>
+          </div>
+        {% if site.enable_liquid_glass %}
+            </div>
+          </div>
+        {% else %}
+          </div>
+        {% endif %}
+        {% if page.social %}
+          <div class="hero__links">{% include portfolio_social_links.liquid %}</div>
         {% endif %}
       </div>
+      {% if page.profile and page.profile.image %}
+        <div class="hero__media">
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% capture sizes %}(min-width: 768px) 200px, 45vw{% endcapture %}
+          {% if site.enable_liquid_glass %}
+            <div class="liquidGL liquidGL--profile">
+              <div class="liquidGL-content">
+                {% include figure.liquid loading="eager" path=profile_image_path class="hero__photo img-fluid" sizes=sizes alt=page.profile.image cache_bust=true %}
+              </div>
+            </div>
+          {% else %}
+            {% include figure.liquid loading="eager" path=profile_image_path class="hero__photo img-fluid" sizes=sizes alt=page.profile.image cache_bust=true %}
+          {% endif %}
+          {% if page.profile.more_info %}
+            <div class="hero__location">{{ page.profile.more_info }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+  {% include logo-strip.liquid %}
+
+  {% if p.focus_areas %}
+    <section class="focus-section" aria-label="Focus areas">
+      {% include doss-line.liquid %}
+      <ul class="focus-tabs">
+        {% for area in p.focus_areas %}
+          <li class="focus-tabs__item">
+            <a class="focus-tabs__link" href="{{ area.href }}">{{ area.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      {% include doss-line.liquid %}
+    </section>
+  {% endif %}
+
+  <article class="portfolio-body">
+    <section class="intro-section" id="intro">
+      <div class="clearfix">{{ content }}</div>
+    </section>
+
+    {% if p.pillars %}
+      <section class="pillars-section" id="pillars">
+        <h2 class="section-eyebrow">{{ p.pillars_title }}</h2>
+        {% include doss-line.liquid %}
+        {% for pillar in p.pillars %}
+          <div class="pillar-row portfolio-reveal" id="{{ pillar.id }}">
+            <div class="pillar-row__lead">
+              <span class="pillar-row__label">{{ pillar.label }}</span>
+              <h3 class="pillar-row__title">{{ pillar.title }}</h3>
+            </div>
+            <div class="pillar-row__body">
+              <p class="pillar-row__main">{{ pillar.main }}</p>
+              {% if pillar.sub %}
+                <p class="pillar-row__sub">{{ pillar.sub }}</p>
+              {% endif %}
+            </div>
+          </div>
+          {% unless forloop.last %}{% include doss-line.liquid %}{% endunless %}
+        {% endfor %}
+      </section>
     {% endif %}
 
-    <div class="clearfix">{{ content }}</div>
+    {% include stack-strip.liquid %}
+    {% include highlights.liquid %}
 
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
-
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
+    {% if p.stats %}
+      <section class="stats-section" id="stats">
+        {% include doss-line.liquid %}
+        <div class="stats-grid">
+          {% for stat in p.stats %}
+            {% if site.enable_liquid_glass %}
+              <div class="liquidGL liquidGL--stat">
+                <div class="liquidGL-content stat-card">
+            {% else %}
+              <div class="stat-card">
+            {% endif %}
+              <p class="stat-card__value">{{ stat.value }}</p>
+              <p class="stat-card__label">{{ stat.label }}</p>
+            {% if site.enable_liquid_glass %}
+                </div>
+              </div>
+            {% else %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
     {% endif %}
   </article>
+
+  <section class="cta-section" id="contact">
+    {% include contact-cta.liquid %}
+  </section>
 </div>

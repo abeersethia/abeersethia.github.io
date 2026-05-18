@@ -57,9 +57,13 @@
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
 
-  .navbar-nav .nav-item .nav-link {
+  .navbar-nav .nav-item.active > .nav-link {
+    background-color: inherit;
+    font-weight: 500;
     color: var(--global-text-color);
 
     &:hover {
@@ -67,10 +71,12 @@
     }
   }
 
-  .navbar-nav .nav-item.active > .nav-link {
-    background-color: inherit;
-    font-weight: bolder;
-    color: var(--global-theme-color);
+  .navbar-nav .nav-item .nav-link {
+    color: var(--global-text-color);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
 
     &:hover {
       color: var(--global-hover-color);
@@ -108,7 +114,7 @@
 
       &:hover {
         i::before {
-          color: var(--global-theme-color);
+          color: var(--global-hover-color);
         }
       }
     }

@@ -20,6 +20,20 @@ $green-color-light: #ddffdd !default;
 $green-color-bright: #11d68b !default;
 $purple-color: #b509ac !default;
 $light-purple-color: color.adjust($purple-color, $lightness: 25%);
+
+// Minimalist accent — neutral system (links / focus align with portfolio CTAs)
+$accent-color: #0a0a0a !default;
+$accent-hover-color: #000000 !default;
+$accent-color-dark: #e5e5e5 !default;
+
+// Typography — Helvetica Neue–style stack (Inter as web fallback)
+$font-family-sans:
+  "Inter",
+  "Helvetica Neue",
+  Helvetica,
+  Arial,
+  sans-serif !default;
+$font-family-mono: "SF Mono", "Menlo", "Monaco", "Courier New", monospace !default;
 $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
 $yellow-color: #efcc00 !default;
@@ -34,7 +48,7 @@ $black-color: #000000 !default;
 
 // Theme colors
 
-$code-bg-color-light: rgba($purple-color, 0.05);
+$code-bg-color-light: rgba(0, 0, 0, 0.04);
 $code-bg-color-dark: #2c3237 !default;
 
 // Font awesome location

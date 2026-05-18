@@ -1,0 +1,83 @@
+{% comment %}
+  Project card — thumbnail, optional hover loop video, metrics, actions.
+{% endcomment %}
+{% assign cat = project.category | default: 'all' %}
+<article class="project-card card h-100" data-category="{{ cat }}">
+  {% if project.img %}
+    <a
+      class="project-card__media{% if project.hover_video %} project-card__media--has-hover{% endif %}"
+      href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}"
+      {% if project.redirect %}
+        target="_blank" rel="noopener noreferrer"
+      {% endif %}
+      {% if project.hover_video %}
+        aria-label="View {{ project.title }} — hover to preview motion"
+      {% endif %}
+    >
+      {% assign img_path = project.img %}
+      {% unless img_path contains 'assets/' %}
+        {% assign img_path = project.img | prepend: 'assets/img/' %}
+      {% endunless %}
+      {% if project.hover_video %}
+        <div class="project-card__thumb">
+          {% include figure.liquid path=img_path class="project-card__img project-card__poster" alt=project.title loading="lazy" %}
+          <video
+            class="project-card__hover-video"
+            muted
+            playsinline
+            loop
+            preload="none"
+            tabindex="-1"
+            aria-hidden="true"
+            data-src="{{ project.hover_video | relative_url }}"
+            {% if project.hover_video_webm %}
+              data-webm="{{ project.hover_video_webm | relative_url }}"
+            {% endif %}
+          ></video>
+        </div>
+      {% else %}
+        {% include figure.liquid path=img_path class="project-card__img" alt=project.title loading="lazy" %}
+      {% endif %}
+    </a>
+  {% endif %}
+
+  {% if site.enable_liquid_glass %}
+    <div class="liquidGL liquidGL--card">
+      <div class="liquidGL-content card-body">
+  {% else %}
+    <div class="card-body">
+  {% endif %}
+      {% if project.category %}
+        <p class="project-card__category">{{ project.category | replace: '-', ' ' }}</p>
+      {% endif %}
+      <h3 class="card-title">{{ project.title }}</h3>
+      <p class="card-text">{{ project.description }}</p>
+
+      {% if project.metrics %}
+        <ul class="project-card__metrics">
+          {% for m in project.metrics %}
+            <li><span class="project-card__metric-value">{{ m.value }}</span> {{ m.label }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <div class="project-card__actions">
+        {% if project.redirect %}
+          <a class="btn-doss btn-doss--primary" href="{{ project.redirect }}" target="_blank" rel="noopener noreferrer">View project</a>
+        {% else %}
+          <a class="btn-doss btn-doss--primary" href="{{ project.url | relative_url }}">View case study</a>
+        {% endif %}
+        {% if project.github %}
+          <a class="btn-doss btn-doss--ghost" href="{{ project.github }}" target="_blank" rel="noopener noreferrer">Code</a>
+        {% endif %}
+        {% if project.website %}
+          <a class="btn-doss btn-doss--ghost" href="{{ project.website }}" target="_blank" rel="noopener noreferrer">Website</a>
+        {% endif %}
+      </div>
+  {% if site.enable_liquid_glass %}
+      </div>
+    </div>
+  {% else %}
+    </div>
+  {% endif %}
+</article>
