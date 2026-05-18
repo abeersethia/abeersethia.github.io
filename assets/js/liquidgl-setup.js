@@ -3,7 +3,7 @@
  */
 (function () {
   const lg = {"snapshot":"body","resolution":1.5,"refraction":0.015,"bevel_depth":0.08,"bevel_width":0.15,"frost":1.2,"shadow":true,"specular":true,"reveal":"fade","tilt":false};
-  const enabled = true;
+  const enabled = false;
 
   if (!enabled) return;
 
