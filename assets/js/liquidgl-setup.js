@@ -2,8 +2,8 @@
  * liquidGL initialisation — https://github.com/naughtyduk/liquidGL
  */
 (function () {
-  const lg = {"snapshot":"body","resolution":1.5,"refraction":0.015,"bevel_depth":0.08,"bevel_width":0.15,"frost":1.2,"shadow":true,"specular":true,"reveal":"fade","tilt":false};
-  const enabled = false;
+  const lg = {"snapshot":"body","resolution":1.5,"refraction":0.008,"bevel_depth":0.04,"bevel_width":0.08,"frost":0.22,"shadow":false,"specular":false,"reveal":"fade","tilt":false};
+  const enabled = true;
 
   if (!enabled) return;
 

@@ -11,14 +11,14 @@ ninja.data = [{
     },
   },{id: "nav-work",
           title: "Work",
-          description: "Selected projects in medical imaging, computer vision, and machine learning.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
           },
         },{id: "nav-journey",
           title: "Journey",
-          description: "Education, research, and industry experience.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/journey/";
@@ -407,11 +407,26 @@ ninja.data = [{
           description: "End-to-end AI pipeline from curated MRI to automated hippocampal volumetry, with a path to DICOM-based clinical workflows.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/hippocampal-volume/";
-            },},{id: "projects-multi-organ-ct-amp-mri-segmentation",
-          title: 'Multi-organ CT &amp;amp; MRI segmentation',
-          description: "Clinical-style 3D segmentation pipelines with reproducible training, evaluation, and handoff artifacts—not demo-only notebooks.",
+            },},{id: "projects-trackerless-ultrasound-pose-estimation-amp-3d-reconstruction",
+          title: 'Trackerless ultrasound pose estimation &amp;amp; 3D reconstruction',
+          description: "Self-supervised temporal pose estimation from B-mode sequences for freehand 3D ultrasound—limited pose labels, clinical-style review paths.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/medical-segmentation/";
+              window.location.href = "/projects/iisc-ultrasound-pose-estimation/";
+            },},{id: "projects-dysgraphia-handwriting-analysis-pipeline",
+          title: 'Dysgraphia handwriting analysis pipeline',
+          description: "Computer-vision and ML pipeline for handwriting-based dysgraphia screening—CfHE summer project, IIT Hyderabad.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/iit-hyderabad-dysgraphia/";
+            },},{id: "projects-attractor-manifold-time-series-reconstruction",
+          title: 'Attractor manifold time-series reconstruction',
+          description: "Reconstructing nonlinear dynamical time series from attractor embeddings using temporal convolutional networks—KLIV Lab, IIT Kharagpur.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/iit-kharagpur-attractor-reconstruction/";
+            },},{id: "projects-expert-guided-liver-lesion-segmentation-ct-mri",
+          title: 'Expert-guided liver lesion segmentation (CT/MRI)',
+          description: "Clinical-style 3D segmentation of liver lesions in CT and MRI with radiology-guided labels—Philips Innovation Campus, Bangalore.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/philips-liver-segmentation/";
             },},{id: "projects-template-project",
           title: 'Template project',
           description: "One-line summary shown on the work page.",
@@ -471,14 +486,5 @@ ninja.data = [{
       section: 'Theme',
       handler: () => {
         setThemeSetting("dark");
-      },
-    },
-    {
-      id: 'system-theme',
-      title: 'Use system default theme',
-      description: 'Change the theme of the site to System Default',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("system");
       },
     },];
