@@ -2,7 +2,7 @@
   <!-- Nav Bar -->
   <nav
     id="navbar"
-    class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}{% if site.enable_liquid_glass %} navbar--glass{% endif %}"
+    class="navbar navbar-light navbar-expand-md {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}{% if site.enable_liquid_glass %} navbar--glass{% endif %}"
     role="navigation"
   >
     {% if site.enable_liquid_glass %}
@@ -117,26 +117,7 @@
           {% assign pf = site.data.portfolio %}
           {% if pf.nav.contact %}
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href="{{ pf.nav.contact.url | relative_url }}"
-              >
-                {{- pf.nav.contact.label -}}
-              </a>
-            </li>
-          {% endif %}
-
-          {% if site.data.socials.email %}
-            <li class="nav-item d-md-none">
-              <a class="nav-link" href="mailto:{{ site.data.socials.email }}">email</a>
-            </li>
-            <li class="nav-item nav-item--cta d-none d-md-flex align-items-center">
-              <a
-                class="btn-doss btn-doss--ghost btn-doss--nav"
-                href="mailto:{{ site.data.socials.email }}"
-              >
-                Email
-              </a>
+              <a class="nav-link" href="{{ pf.nav.contact.url | relative_url }}">{{ pf.nav.contact.label }}</a>
             </li>
           {% endif %}
 

@@ -6,7 +6,6 @@ importance: 2
 listed: true
 category: segmentation
 img: assets/img/2.jpg
-hover_video: assets/video/abstract-hover.mp4
 metrics:
   - label: Focus
     value: CT / MRI

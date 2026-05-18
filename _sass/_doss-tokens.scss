@@ -1,68 +1,60 @@
 /*******************************************************************************
- * Design tokens — Swiss / modern SaaS (Linear, Anthropic, Stripe-inspired)
- * Neutral palette, hairline borders, typographic rhythm
+ * Design tokens — minimalist portfolio
  ******************************************************************************/
 
 :root {
   --doss-font-main: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Typography — crisp, technical */
-  --doss-text-dark: #0a0a0a;
-  --doss-text-grey-1: #525252;
-  --doss-text-grey-2: #737373;
-  /* Foreground for text on *dark* accent fills (e.g. primary button in light mode). */
-  --doss-text-light: #fafafa;
+  --doss-text-dark: #111111;
+  --doss-text-grey-1: #555555;
+  --doss-text-grey-2: #777777;
+  --doss-text-light: #ffffff;
 
-  /* Surfaces — cool neutrals, generous negative space */
-  --doss-bg-light-1: #fafafa;
-  --doss-bg-light-2: #f4f4f4;
-  --doss-bg-light-3: #ececec;
+  --doss-bg-light-1: #ffffff;
+  --doss-bg-light-2: #f7f7f7;
+  --doss-bg-light-3: #eeeeee;
 
-  --doss-bg-dark-1: #0a0a0a;
-  --doss-bg-dark-2: #141414;
-  --doss-bg-dark-3: #1c1c1c;
+  --doss-bg-dark-1: #111111;
+  --doss-bg-dark-2: #1a1a1a;
+  --doss-bg-dark-3: #222222;
 
-  --doss-border: rgba(0, 0, 0, 0.08);
-  --doss-border-dashed: rgba(0, 0, 0, 0.04);
-
-  /* Single neutral accent — premium, not decorative */
-  --doss-accent: #0a0a0a;
+  --doss-border: rgba(0, 0, 0, 0.1);
+  --doss-accent: #111111;
   --doss-accent-hover: #000000;
 
-  --doss-container: min(72rem, calc(100vw - 2.5rem));
-  --doss-section-gap: clamp(3.25rem, 9vw, 5.5rem);
+  /* Side margins — narrow gutters, wider content band */
+  --doss-page-gutter: clamp(0.75rem, 3vw, 1.25rem);
+  --doss-container: min(52rem, calc(100vw - 2 * var(--doss-page-gutter)));
+  --doss-section-gap: clamp(2.5rem, 6vw, 4rem);
   --doss-rhythm: 0.5rem;
 
-  /* Corners — soft SaaS, not sharp chiclets */
-  --doss-radius-btn: 6px;
-  --doss-radius-card: 10px;
-  --doss-radius-chip: 6px;
+  --doss-radius-btn: 4px;
+  --doss-radius-card: 4px;
+  --doss-radius-chip: 4px;
 
-  --doss-display-size: clamp(2.5rem, 5.5vw, 3.75rem);
-  --doss-display-lh: 1.02;
-  --doss-display-ls: -0.035em;
+  --doss-display-size: clamp(1.75rem, 4vw, 2.25rem);
+  --doss-display-lh: 1.15;
+  --doss-display-ls: -0.03em;
 
-  --doss-h2-size: clamp(1.375rem, 2.5vw, 1.75rem);
-  --doss-h2-ls: -0.03em;
+  --doss-h2-size: 1.125rem;
+  --doss-h2-ls: -0.02em;
 
   --doss-body-size: 1rem;
-  --doss-body-lh: 1.6;
+  --doss-body-lh: 1.65;
   --doss-caption-size: 0.8125rem;
-  --doss-eyebrow-size: 0.625rem;
-  --doss-eyebrow-ls: 0.08em;
 }
 
 html[data-theme="dark"] {
-  /* Primary readable text on dark surfaces (NOT “light colored” literally). */
-  --doss-text-dark: #fafafa;
+  --doss-text-dark: #f5f5f5;
   --doss-text-grey-1: #a3a3a3;
-  --doss-text-grey-2: #9ca3af;
-  /* Foreground on *light* accent fills in dark mode (e.g. text on white CTA button). */
-  --doss-text-light: #0a0a0a;
+  --doss-text-grey-2: #888888;
+  --doss-text-light: #111111;
 
-  --doss-border: rgba(255, 255, 255, 0.1);
-  --doss-border-dashed: rgba(255, 255, 255, 0.04);
+  --doss-bg-light-1: #111111;
+  --doss-bg-light-2: #1a1a1a;
+  --doss-bg-light-3: #222222;
 
-  --doss-accent: #fafafa;
+  --doss-border: rgba(255, 255, 255, 0.12);
+  --doss-accent: #f5f5f5;
   --doss-accent-hover: #ffffff;
 }

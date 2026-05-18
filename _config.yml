@@ -406,7 +406,7 @@ enable_navbar_social: false # enables displaying social links in the navbar on t
 enable_project_categories: true # filter pills on /projects/ (category in project front matter)
 enable_medium_zoom: true # enables image zoom feature (as on medium.com)
 enable_progressbar: false # enables a horizontal progress bar linked to the vertical scroll position
-enable_liquid_glass: true # liquidGL glassmorphism (https://github.com/naughtyduk/liquidGL)
+enable_liquid_glass: false # keep off for a clean, lightweight portfolio
 enable_video_embedding: false # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
 
 # liquidGL — edit effect strength or disable with enable_liquid_glass: false

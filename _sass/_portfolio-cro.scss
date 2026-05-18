@@ -1,13 +1,61 @@
 @use "doss-tokens";
 
-// —— Hero proof line ——
+// —— About page blocks ——
 
-.doss-page .hero__proof {
-  font-size: var(--doss-caption-size);
+.section-title {
+  font-size: var(--doss-h2-size);
+  font-weight: 500;
+  letter-spacing: var(--doss-h2-ls);
+  color: var(--doss-text-dark);
+  margin: 0 0 0.75rem;
+}
+
+.about-block {
+  margin-bottom: var(--doss-section-gap);
+}
+
+.about-list {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  max-width: 38rem;
   color: var(--doss-text-grey-1);
-  margin: 0.5rem 0 0;
-  letter-spacing: -0.01em;
-  max-width: 36rem;
+  font-size: var(--doss-body-size);
+  line-height: var(--doss-body-lh);
+
+  li {
+    margin-bottom: 0.35rem;
+  }
+}
+
+.experience-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 38rem;
+
+  &__item {
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--doss-border);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__org {
+    display: block;
+    font-size: var(--doss-body-size);
+    font-weight: 500;
+    color: var(--doss-text-dark);
+    margin-bottom: 0.15rem;
+  }
+
+  &__detail {
+    display: block;
+    font-size: var(--doss-caption-size);
+    color: var(--doss-text-grey-1);
+    line-height: 1.5;
+  }
 }
 
 // —— Logo strip (institution icons + labels) ——
@@ -93,27 +141,23 @@ html[data-theme="dark"] .logo-strip__img--mono {
 
 // —— Stack strip ——
 
-.stack-strip {
-  margin-bottom: var(--doss-section-gap);
+.stack-strip__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
 
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0.75rem 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-  }
-
-  &__item {
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 0.35rem 0.65rem;
-    border: 1px solid var(--doss-border);
-    border-radius: var(--doss-radius-chip);
-    color: var(--doss-text-grey-1);
-    background: var(--doss-bg-light-2);
-  }
+.stack-strip__item {
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--doss-border);
+  border-radius: var(--doss-radius-chip);
+  color: var(--doss-text-grey-1);
+  background: transparent;
 }
 
 html[data-theme="dark"] .stack-strip__item {
@@ -182,37 +226,31 @@ html[data-theme="dark"] .highlight-card {
 // —— Contact CTA band ——
 
 .contact-cta {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: var(--doss-section-gap);
+  border-top: 1px solid var(--doss-border);
 
   &--compact {
-    margin-top: 1.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--doss-border);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
   }
 
   &__inner {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    gap: 1.25rem;
-    padding: 1.35rem 0 0.5rem;
+    gap: 1rem;
+    padding: 0 0 0.5rem;
   }
 
   &__title {
-    font-size: 1.35rem;
+    font-size: var(--doss-h2-size);
     font-weight: 500;
-    letter-spacing: -0.03em;
-    margin: 0 0 0.35rem;
-    color: var(--doss-text-dark);
-  }
-
-  &__sub {
+    letter-spacing: var(--doss-h2-ls);
     margin: 0;
-    max-width: 32rem;
-    font-size: var(--doss-body-size);
-    color: var(--doss-text-grey-1);
+    color: var(--doss-text-dark);
   }
 
   &__actions {
@@ -289,16 +327,11 @@ html[data-theme="dark"] .highlight-card {
   border: 1px solid var(--doss-border);
   border-radius: var(--doss-radius-card);
   overflow: hidden;
-  background: #ffffff;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+  background: var(--doss-bg-light-1);
+  transition: border-color 0.15s ease;
 
   &:hover {
-    border-color: rgba(10, 10, 10, 0.14);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.18);
   }
 
   &__media {
@@ -512,8 +545,7 @@ html[data-theme="dark"] .project-filters__btn.is-active {
 }
 
 html[data-theme="dark"] .project-card:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 html[data-theme="dark"] .case-study__body blockquote {

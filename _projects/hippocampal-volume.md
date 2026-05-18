@@ -5,7 +5,6 @@ description: End-to-end AI pipeline from curated MRI to automated hippocampal vo
 importance: 3
 category: neuroimaging
 img: assets/img/1.jpg
-hover_video: assets/video/pexels-engin-akyurt-6069112-960x540-30fps.mp4
 github: https://github.com/abeersethia/Hippocampal_Volume_Quantification_in_Alzheimers_Progression
 metrics:
   - label: Dice (mean)
