@@ -378,10 +378,10 @@
 {% endif %}
 
 <script defer src="{{ '/assets/js/portfolio-interactions.js' | relative_url }}"></script>
-{% if page.url == '/projects/' or page.permalink == '/projects/' %}
+{% if page.permalink == '/projects/' %}
   <script defer src="{{ '/assets/js/projects-filter.js' | relative_url }}"></script>
 {% endif %}
-{% if page.url == '/journey/' or page.permalink == '/journey/' %}
+{% if page.permalink == '/journey/' %}
   <script defer src="{{ '/assets/js/journey-filter.js' | relative_url }}"></script>
 {% endif %}
 {% if page.layout == 'case-study' %}

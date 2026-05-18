@@ -44,12 +44,14 @@ current_focus:
 project_filters:
   - id: all
     label: All
-  - id: course 
-    label: Coursework / Academic 
+  - id: course
+    label: Coursework / Academic
   - id: research
-    label: Research 
+    label: Research
+  - id: industry
+    label: Industry
   - id: personal
-    label: Personal 
+    label: Personal
 
 pages:
   work:

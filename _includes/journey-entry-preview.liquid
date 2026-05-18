@@ -44,7 +44,8 @@
 ' %}
       {% assign journey_nonempty_count = 0 %}
       {% for line in journey_lines %}
-        {% if line | strip != '' %}
+        {% assign journey_line_trimmed = line | strip %}
+        {% if journey_line_trimmed != '' %}
           {% assign journey_nonempty_count = journey_nonempty_count | plus: 1 %}
         {% endif %}
       {% endfor %}

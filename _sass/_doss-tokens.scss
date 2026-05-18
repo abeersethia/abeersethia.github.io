@@ -22,15 +22,15 @@
   --doss-accent: #111111;
   --doss-accent-hover: #000000;
 
-  /* Side margins — narrow gutters, wider content band */
-  --doss-page-gutter: clamp(0.75rem, 3vw, 1.25rem);
-  --doss-container: min(52rem, calc(100vw - 2 * var(--doss-page-gutter)));
+  /* Match al-folio Bootstrap gutters; column width comes from site.max_width (72rem = 1152px) */
+  --doss-page-gutter: 15px;
+  --doss-container: 72rem;
   --doss-section-gap: clamp(2.5rem, 6vw, 4rem);
   --doss-rhythm: 0.5rem;
 
-  --doss-radius-btn: 4px;
+  --doss-radius-btn: 12px;
   --doss-radius-card: 4px;
-  --doss-radius-chip: 4px;
+  --doss-radius-chip: 12px;
 
   --doss-display-size: clamp(1.75rem, 4vw, 2.25rem);
   --doss-display-lh: 1.15;

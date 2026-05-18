@@ -1,8 +1,8 @@
-<header>
+<header class="{% if site.enable_liquid_glass and site.navbar_fixed %}portfolio-header{% endif %}">
   <!-- Nav Bar -->
   <nav
     id="navbar"
-    class="navbar navbar-light navbar-expand-md {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}{% if site.enable_liquid_glass %} navbar--glass{% endif %}"
+    class="navbar navbar-light navbar-expand-md {% if site.navbar_fixed %}{% unless site.enable_liquid_glass %}fixed-top{% endunless %}{% else %}sticky-top{% endif %}{% if site.enable_liquid_glass %} navbar--glass navbar--floating{% endif %}"
     role="navigation"
   >
     {% if site.enable_liquid_glass %}
@@ -137,10 +137,9 @@
           {% endif %}
           {% if site.enable_darkmode %}
             <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
-                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
-                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
-                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+              <button id="light-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                <i class="fa-solid fa-moon" id="light-toggle-dark" aria-hidden="true"></i>
+                <i class="fa-solid fa-sun" id="light-toggle-light" aria-hidden="true"></i>
               </button>
             </li>
           {% endif %}

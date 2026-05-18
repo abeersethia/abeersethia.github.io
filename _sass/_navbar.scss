@@ -167,11 +167,22 @@
   background-color: inherit;
   color: var(--global-text-color);
   /* Fix footprint to prevent navbar shifting when icon changes */
+  position: relative;
   width: 2rem;
   height: 2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+
+  > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+  }
 
   &:hover {
     color: var(--global-hover-color);

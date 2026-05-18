@@ -5,10 +5,8 @@ permalink: /
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: graphic-designer-illustration.svg
   image_circular: false
-  more_info: >
-    <p>Bengaluru, India</p>
 
 social: true
 ---

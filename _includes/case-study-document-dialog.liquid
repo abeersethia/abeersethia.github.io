@@ -1,0 +1,68 @@
+{% comment %}
+  Modal viewer for a case-study attachment (image or PDF).
+  Params: attachment (label, file/image/img, alt), dialog_id (unique HTML id)
+{% endcomment %}
+{% assign att = include.attachment %}
+{% assign dialog_id = include.dialog_id %}
+{% assign doc_src = att.file | default: att.image | default: att.img %}
+{% unless doc_src contains 'assets/' %}
+  {% if doc_src contains '.pdf' %}
+    {% assign doc_src = doc_src | prepend: 'assets/pdf/' %}
+  {% else %}
+    {% assign doc_src = doc_src | prepend: 'assets/img/' %}
+  {% endif %}
+{% endunless %}
+{% assign doc_url = doc_src | relative_url %}
+{% if att.alt %}
+  {% assign doc_alt = att.alt %}
+{% else %}
+  {% assign doc_alt = page.title | append: ' — ' | append: att.label | default: 'document' %}
+{% endif %}
+{% assign doc_label = att.label | default: 'Document' %}
+{% assign doc_is_pdf = false %}
+{% if doc_src contains '.pdf' %}
+  {% assign doc_is_pdf = true %}
+{% endif %}
+<dialog
+  class="case-study-certificate case-study-certificate--document{% if doc_is_pdf %} case-study-certificate--pdf{% else %} case-study-certificate--image{% endif %}"
+  id="{{ dialog_id }}"
+  aria-label="{{ doc_alt }}"
+>
+  <div class="case-study-certificate__shell">
+    <header class="case-study-certificate__bar">
+      <div class="case-study-certificate__bar-text">
+        <span class="case-study-certificate__bar-label">{{ doc_label }}</span>
+        <span class="case-study-certificate__bar-hint">
+          {% if doc_is_pdf %}PDF preview{% else %}Image preview{% endif %}
+        </span>
+      </div>
+      <div class="case-study-certificate__bar-actions">
+        <a class="case-study-certificate__open" href="{{ doc_url }}" target="_blank" rel="noopener noreferrer">
+          Open in tab
+        </a>
+        <button
+          type="button"
+          class="case-study-certificate__close js-case-study-certificate-close"
+          aria-label="Close {{ doc_label }}"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          <span>Close</span>
+        </button>
+      </div>
+    </header>
+    <div class="case-study-certificate__viewport{% unless doc_is_pdf %} case-study-certificate__viewport--image{% endunless %}">
+      {% if doc_is_pdf %}
+        <iframe class="case-study-certificate__pdf" src="{{ doc_url }}" title="{{ doc_alt }}"></iframe>
+      {% else %}
+        <figure class="case-study-certificate__figure">
+          <img
+            class="case-study-certificate__img"
+            src="{{ doc_url }}"
+            alt="{{ doc_alt }}"
+            decoding="async"
+          >
+        </figure>
+      {% endif %}
+    </div>
+  </div>
+</dialog>

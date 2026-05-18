@@ -2,18 +2,14 @@
 layout: page
 title: Journey
 permalink: /journey/
-description: Education, research, and industry experience.
+description: 
 nav: true
 nav_order: 3
 ---
 
 <div class="journey-page">
-  {% assign journey = site.data.journey %}
-
-  {% if journey.intro %}
-    <p class="page-intro">{{ journey.intro }}</p>
-  {% endif %}
-
+  <p class="journey-page__label">Education, Research and Industry Experience - A Timeline</p>
+  <hr class="journey-page__rule" aria-hidden="true">
   {% include journey_filters.liquid %}
   {% include journey-timeline.liquid %}
 </div>

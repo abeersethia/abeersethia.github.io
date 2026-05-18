@@ -406,19 +406,20 @@ enable_navbar_social: false # enables displaying social links in the navbar on t
 enable_project_categories: true # filter pills on /projects/ (category in project front matter)
 enable_medium_zoom: true # enables image zoom feature (as on medium.com)
 enable_progressbar: false # enables a horizontal progress bar linked to the vertical scroll position
-enable_liquid_glass: false # keep off for a clean, lightweight portfolio
+enable_liquid_glass: true # navbar glass panel (liquidGL + CSS fallback)
+enable_custom_cursor: false # Hoppers Tom Lizard cursor (assets/img/cursors/)
 enable_video_embedding: false # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
 
 # liquidGL — edit effect strength or disable with enable_liquid_glass: false
 liquid_glass:
   snapshot: body
   resolution: 1.5
-  refraction: 0.015
-  bevel_depth: 0.08
-  bevel_width: 0.15
-  frost: 1.2
-  shadow: true
-  specular: true
+  refraction: 0.008
+  bevel_depth: 0.04
+  bevel_width: 0.08
+  frost: 0.22
+  shadow: false
+  specular: false
   reveal: fade
   tilt: false
 
@@ -471,7 +472,7 @@ third_party_libraries:
     version: "5.5.0"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      fonts: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
   html2canvas:
     integrity:
       js: "sha256-wpQ7APoyPGYPaqdvJKVdQ5ehETxRHl2v7Zv2OeYetiA="

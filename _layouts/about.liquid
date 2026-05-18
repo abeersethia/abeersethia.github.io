@@ -26,14 +26,22 @@ layout: default
         {% endif %}
       </div>
       {% if page.profile and page.profile.image %}
-        <div class="hero__media">
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% capture sizes %}(min-width: 768px) 180px, 40vw{% endcapture %}
-          {% include figure.liquid loading="eager" path=profile_image_path class="hero__photo img-fluid" sizes=sizes alt=page.profile.image cache_bust=true %}
-          {% if page.profile.more_info %}
-            <div class="hero__location">{{ page.profile.more_info }}</div>
-          {% endif %}
-        </div>
+        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+        {% if page.profile.image contains '.svg' %}
+          <div class="hero__media hero__media--illustration">
+            <div
+              class="hero__illustration"
+              role="img"
+              aria-label="Line illustration of a person writing at a desk"
+              style="--hero-illustration-mask: url('{{ profile_image_path | relative_url | bust_file_cache }}');"
+            ></div>
+          </div>
+        {% else %}
+          <div class="hero__media">
+            {% capture sizes %}(min-width: 768px) 180px, 40vw{% endcapture %}
+            {% include figure.liquid loading="eager" path=profile_image_path class="hero__photo img-fluid" sizes=sizes alt=page.profile.image cache_bust=true %}
+          </div>
+        {% endif %}
       {% endif %}
     </div>
   </section>

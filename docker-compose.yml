@@ -18,4 +18,5 @@ services:
     volumes:
       - .:/srv/jekyll
     environment:
-      - JEKYLL_ENV=development
+      # Match GitHub Pages deploy (see .github/workflows/deploy.yml)
+      - JEKYLL_ENV=production

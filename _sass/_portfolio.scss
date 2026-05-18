@@ -12,20 +12,8 @@ body.portfolio-site {
   color: var(--doss-text-dark);
   font-family: var(--doss-font-main);
 
-  .container[role="main"] {
-    max-width: var(--doss-container);
-    padding-left: var(--doss-page-gutter);
-    padding-right: var(--doss-page-gutter);
-    padding-top: 0.25rem;
-    padding-bottom: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .container[role="main"] {
-      margin-top: 0 !important;
-      padding-top: 0.25rem;
-    }
-  }
+  // Page width / centering: al-folio uses Bootstrap .container (15px side padding,
+  // margin auto) plus _layout.scss max-width from site.max_width — not overridden here.
 }
 
 // Hairline dividers (doss .line / border pattern)
@@ -43,19 +31,24 @@ body.portfolio-site {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.1rem;
+  box-sizing: border-box;
+  min-height: 2.5rem;
+  padding: 0.55rem 1.15rem;
   font-family: var(--doss-font-main);
   font-size: var(--doss-caption-size);
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: 1.2;
+  line-height: 1.35;
   text-decoration: none !important;
   border: 1px solid transparent;
-  border-bottom: none !important;
   border-radius: var(--doss-radius-btn);
   cursor: pointer;
   position: relative;
   z-index: 2;
+  overflow: visible;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  appearance: none;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 
   &:focus-visible {
@@ -79,7 +72,7 @@ body.portfolio-site {
   &--ghost {
     background: transparent;
     color: var(--doss-text-dark);
-    border-color: var(--doss-border);
+    border: 1px solid var(--doss-border);
 
     &:hover {
       background: var(--doss-bg-light-2);
@@ -92,18 +85,41 @@ body.portfolio-site {
 // —— Navigation ——
 
 body.portfolio-site .navbar {
+  --doss-nav-brand-gap: 1.5rem;
+  --doss-nav-gap: 0.625rem;
+
   background: var(--doss-bg-light-1);
   border-bottom: 1px solid var(--doss-border);
   opacity: 1;
   padding: 0.75rem 0;
 
-  .container {
-    max-width: var(--doss-container);
-    padding-left: var(--doss-page-gutter);
-    padding-right: var(--doss-page-gutter);
+  .navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: var(--doss-nav-gap);
+    row-gap: 0.35rem;
+  }
+
+  .navbar-nav > .nav-item,
+  .navbar-nav > .toggle-container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .toggle-container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+  }
+
+  #light-toggle {
+    transform: none;
   }
 
   .navbar-brand {
+    margin-right: var(--doss-nav-brand-gap);
     font-size: 0.9375rem;
     font-weight: 500;
     letter-spacing: -0.02em;
@@ -127,6 +143,90 @@ body.portfolio-site .navbar {
     color: var(--doss-text-dark);
     font-weight: 500;
   }
+
+  &.navbar--glass {
+    --doss-nav-brand-gap: 1.5rem;
+    --doss-nav-gap: 0.5rem;
+    --doss-nav-shift-left: 1.5rem;
+
+    background: transparent !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+
+    .navbar-collapse {
+      margin-right: var(--doss-nav-shift-left);
+    }
+
+    .navbar-toggler {
+      margin-right: calc(var(--doss-nav-shift-left) - 0.35rem);
+    }
+
+    .navbar-brand {
+      font-size: 1.025rem;
+      font-weight: 700;
+      font-variation-settings: "wght" 700;
+      letter-spacing: -0.03em;
+      color: var(--doss-text-dark);
+      margin-right: var(--doss-nav-brand-gap);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      font-size: 0.875rem;
+      font-weight: 400;
+      padding: 0.5rem 0.65rem;
+      border-radius: 8px;
+      color: var(--doss-text-dark);
+      transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+
+      &:hover {
+        color: var(--doss-text-dark);
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    .navbar-nav .nav-item.active > .nav-link {
+      font-weight: 500;
+      color: var(--doss-text-dark);
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .toggle-container #light-toggle {
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      border-radius: 8px;
+      color: var(--doss-text-dark);
+      opacity: 0.9;
+      transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        opacity 0.2s ease;
+
+      > i {
+        font-size: 0.9375rem;
+      }
+
+      &:hover {
+        color: var(--doss-text-dark);
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
+
+html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass {
+  .navbar-nav .nav-item .nav-link:hover,
+  .navbar-nav .nav-item.active > .nav-link {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .toggle-container #light-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
 }
 
 // —— Hero (doss .hero-section) ——
@@ -138,11 +238,11 @@ body.portfolio-site .navbar {
 .doss-page .hero {
   display: grid;
   gap: 2.5rem;
-  align-items: start;
+  align-items: center;
 
   @media (min-width: 768px) {
-    grid-template-columns: 1fr auto;
-    gap: 3rem;
+    grid-template-columns: 1fr minmax(12rem, 16rem);
+    gap: clamp(2rem, 5vw, 4rem);
   }
 }
 
@@ -243,6 +343,32 @@ body.portfolio-site .navbar {
   }
 }
 
+.doss-page .hero__media--illustration {
+  margin: 0 auto;
+  max-width: min(16rem, 72vw);
+  justify-self: center;
+
+  @media (min-width: 768px) {
+    max-width: 16rem;
+    margin: 0;
+    justify-self: end;
+  }
+}
+
+.doss-page .hero__illustration {
+  width: 100%;
+  aspect-ratio: 489 / 550;
+  background-color: var(--doss-text-dark);
+  mask-image: var(--hero-illustration-mask);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: var(--hero-illustration-mask);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
 .doss-page .hero__photo {
   border-radius: 2px;
   display: block;
@@ -305,10 +431,20 @@ body.portfolio-site .navbar {
 body.portfolio-site .page-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
   margin-top: 2.5rem;
+  margin-bottom: 0;
   padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
   border-top: 1px solid var(--doss-border);
+}
+
+// Case-study footer: avoid a second rule flush under “← All work”
+body.portfolio-site .page-actions + .contact-cta {
+  border-top: none;
+  margin-top: 0;
+  padding-top: var(--doss-section-gap);
 }
 
 .doss-page .page-intro {
@@ -489,6 +625,19 @@ body.portfolio-site .post:not(.doss-page) {
   .post-description:empty {
     display: none;
   }
+
+  article {
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-intro {
+    margin: 0 0 1.5rem;
+    color: var(--doss-text-grey-1);
+    font-size: var(--doss-body-size);
+    line-height: var(--doss-body-lh);
+  }
+
 }
 
 // —— Projects (doss .products-section list) ——
@@ -527,11 +676,15 @@ body.portfolio-site footer {
   color: var(--doss-text-grey-1);
   border-top: 1px solid var(--doss-border);
   font-size: var(--doss-caption-size);
-  margin-top: var(--doss-section-gap);
+  margin-top: 2rem;
+
+  &.sticky-bottom.mt-5 {
+    margin-top: 2rem !important;
+  }
 
   .container {
-    max-width: var(--doss-container);
-    padding: 1.25rem var(--doss-page-gutter) 2rem;
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
   }
 
   a {
@@ -557,6 +710,11 @@ html[data-theme="dark"] body.portfolio-site {
   .navbar {
     background: var(--doss-bg-dark-1);
     border-bottom-color: var(--doss-border);
+
+    &.navbar--glass {
+      background: transparent !important;
+      border-bottom: none !important;
+    }
   }
 
   .doss-page .stats-section {

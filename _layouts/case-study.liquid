@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{% assign p = site.data.portfolio %}
 <div class="post case-study">
   <header class="case-study__header">
     <p class="case-study__eyebrow">
@@ -21,13 +20,39 @@ layout: default
       </ul>
     {% endif %}
 
-    <div class="case-study__header-actions">
-      {% if page.github %}
-        <a class="btn-doss btn-doss--primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">View code</a>
-      {% endif %}
-      <a class="btn-doss btn-doss--ghost" href="{{ p.buttons.cv.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ p.buttons.cv.label }}</a>
-    </div>
+    {% if page.github or page.certificate or page.ppt %}
+      <div class="case-study__header-actions">
+        {% if page.github %}
+          <a class="btn-doss btn-doss--primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">View code</a>
+        {% endif %}
+        {% if page.certificate %}
+          <button
+            type="button"
+            class="btn-doss btn-doss--ghost js-case-study-certificate-open"
+            data-certificate-dialog="case-study-certificate"
+          >
+            {{ page.certificate.label | default: 'Certificate' }}
+          </button>
+        {% endif %}
+        {% if page.ppt %}
+          <button
+            type="button"
+            class="btn-doss btn-doss--ghost js-case-study-certificate-open"
+            data-certificate-dialog="case-study-ppt"
+          >
+            {{ page.ppt.label | default: 'PPT' }}
+          </button>
+        {% endif %}
+      </div>
+    {% endif %}
   </header>
+
+  {% if page.certificate %}
+    {% include case-study-document-dialog.liquid attachment=page.certificate dialog_id='case-study-certificate' %}
+  {% endif %}
+  {% if page.ppt %}
+    {% include case-study-document-dialog.liquid attachment=page.ppt dialog_id='case-study-ppt' %}
+  {% endif %}
 
   <div class="row case-study__layout">
     <aside class="col-lg-3 case-study__sidebar-col">

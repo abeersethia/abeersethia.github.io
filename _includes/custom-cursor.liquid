@@ -1,0 +1,47 @@
+{% comment %}
+  Hoppers Tom Lizard cursor pack — fanart via custom-cursor.com
+  https://custom-cursor.com/en/collection/disney-cartoons/hoppers-tom-lizard
+{% endcomment %}
+{% if site.enable_custom_cursor %}
+  {% assign cursor_default = '/assets/img/cursors/hoppers-tom-lizard-cursor.png' | relative_url %}
+  {% assign cursor_pointer = '/assets/img/cursors/hoppers-tom-lizard-pointer.png' | relative_url %}
+  <style>
+    @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      body.portfolio-site {
+        cursor: url("{{ cursor_default }}") 10 10, auto;
+      }
+
+      body.portfolio-site a,
+      body.portfolio-site button,
+      body.portfolio-site summary,
+      body.portfolio-site label[for],
+      body.portfolio-site select,
+      body.portfolio-site input[type="button"],
+      body.portfolio-site input[type="submit"],
+      body.portfolio-site input[type="reset"],
+      body.portfolio-site input[type="checkbox"],
+      body.portfolio-site input[type="radio"],
+      body.portfolio-site [role="button"],
+      body.portfolio-site .btn,
+      body.portfolio-site .btn-doss,
+      body.portfolio-site .nav-link,
+      body.portfolio-site .navbar-brand,
+      body.portfolio-site .navbar-toggler,
+      body.portfolio-site .project-card a,
+      body.portfolio-site .journey-entry__toggle {
+        cursor: url("{{ cursor_pointer }}") 10 10, pointer;
+      }
+
+      body.portfolio-site input[type="text"],
+      body.portfolio-site input[type="email"],
+      body.portfolio-site input[type="search"],
+      body.portfolio-site input[type="url"],
+      body.portfolio-site input[type="password"],
+      body.portfolio-site input[type="number"],
+      body.portfolio-site textarea,
+      body.portfolio-site [contenteditable="true"] {
+        cursor: text;
+      }
+    }
+  </style>
+{% endif %}
