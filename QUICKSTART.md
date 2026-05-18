@@ -1,111 +1,344 @@
-# Quick Start Guide
+# Quick Start — Portfolio Site
 
-**Get your al-folio site running in 5 minutes.** This guide is for users who just want a working website quickly without deep customization.
-
-> **Video Tutorial:** Watch a walkthrough of these steps [here](assets/video/tutorial_al_folio.mp4)
+**Run locally, edit the right files, preview, deploy.** This guide matches your customized al-folio portfolio (Swiss/minimal UI, case studies, institution strip, hover video cards). For deep al-folio options, see [INSTALL.md](INSTALL.md) and [CUSTOMIZE.md](CUSTOMIZE.md).
 
 <!--ts-->
 
-- [Quick Start Guide](#quick-start-guide)
-  - [Step 1: Create Your Repository (1 min)](#step-1-create-your-repository-1-min)
-  - [Step 2: Configure Deployment (1 min)](#step-2-configure-deployment-1-min)
-  - [Step 3: Personalize (2 min)](#step-3-personalize-2-min)
-  - [Step 4: View Your Site (1 min)](#step-4-view-your-site-1-min)
-  - [What's Next?](#whats-next)
-    - [Add Your Content](#add-your-content)
-    - [Customize Appearance](#customize-appearance)
-    - [Learn More](#learn-more)
-    - [Get Help from AI](#get-help-from-ai)
+- [Quick Start — Portfolio Site](#quick-start--portfolio-site)
+  - [1. Run the site locally](#1-run-the-site-locally)
+  - [2. Site identity (`_config.yml`)](#2-site-identity-_configyml)
+  - [3. Copy & conversion hub (`_data/portfolio.yml`)](#3-copy--conversion-hub-_dataportfolioyml)
+  - [4. About page & photo](#4-about-page--photo)
+  - [5. Contact, résumé & social links](#5-contact-résumé--social-links)
+  - [6. Work page & projects](#6-work-page--projects)
+  - [7. Institution logos & stack](#7-institution-logos--stack)
+  - [8. Appearance & toggles](#8-appearance--toggles)
+  - [9. Navigation & extra pages](#9-navigation--extra-pages)
+  - [10. Before you commit](#10-before-you-commit)
+  - [11. Deploy to GitHub Pages](#11-deploy-to-github-pages)
+  - [File map (what lives where)](#file-map-what-lives-where)
 
 <!--te-->
 
-## Step 1: Create Your Repository (1 min)
+---
 
-**⚠️ Important:** Use the **"Use this template"** button, NOT the fork button. This ensures your site is independent and you won't accidentally submit your personal changes back to the al-folio project.
+## 1. Run the site locally
 
-1. Go to the [al-folio repository](https://github.com/alshedivat/al-folio)
-2. Click the green **"Use this template"** button (top right), then select **"Create a new repository"**
-3. Name your repository:
-   - **Personal/Organization site (if you want your site to be at `username.github.io`):** `username.github.io` (replace `username` with your GitHub username)
-   - **Project site (if you want your site to be at `username.github.io/project-name`):** Any name (e.g., `my-research-website`)
-4. Click **"Create repository from template"**
+**Recommended: Docker** (matches CI and avoids Ruby version issues).
 
-**Already forked by mistake?** No problem. Your fork will work fine—just be careful when making changes. Create a new branch for your updates (e.g., `git checkout -b my-site-updates`) and make sure you push to **your own repository**, not the main al-folio project.
+```bash
+docker compose pull && docker compose up
+```
 
-## Step 2: Configure Deployment (1 min)
+Open **http://localhost:8080**. Stop with `Ctrl+C`, or:
 
-1. Go to your new repository → **Settings** → **Actions** → **General** → **Workflow permissions**
-2. Select **Read and write permissions**
-3. Click **Save**
+```bash
+docker compose down
+```
 
-## Step 3: Personalize (2 min)
+After dependency or Dockerfile changes:
 
-1. Open `_config.yml` in your repository
-2. Update these fields:
-   ```yaml
-   title: My Website
-   first_name: Your
-   last_name: Name
-   url: https://your-username.github.io # or your custom domain
-   baseurl: # Leave this empty (do NOT delete it)
-   ```
-3. Click **Commit changes** (at the bottom of the page)
+```bash
+docker compose up --build
+```
 
-## Step 4: View Your Site (1 min)
+One-off production build check:
 
-1. Go to your repository → **Actions** tab
-2. Wait for the "Deploy site" workflow to complete (look for a green checkmark, ~4 minutes)
-3. Go to **Settings** → **Pages** → **Build and deployment**
-4. Make sure **Source** is set to **Deploy from a branch**
-5. Set the branch to **gh-pages** (NOT main)
-6. Wait for the "pages-build-deployment" workflow to complete (~45 seconds)
-7. Visit `https://your-username.github.io` in your browser
-
-**That's it!** Your site is live. You now have a working al-folio website.
+```bash
+docker compose run --rm jekyll jekyll build
+```
 
 ---
 
-## What's Next?
+## 2. Site identity (`_config.yml`)
 
-Once your site is running, explore these customization options:
+Edit the top of `_config.yml`:
 
-### Add Your Content
+```yaml
+title: blank          # keep blank to use first_name + last_name in the hero/nav
+first_name: Abeer
+last_name: Sethia
+description: >        # SEO / meta description
+url: https://abeersethia.github.io
+baseurl:              # empty for user.github.io; use /repo-name/ for project sites
+```
 
-- **Profile picture:** Replace `assets/img/prof_pic.jpg` with your photo
-- **About page:** Edit `_pages/about.md` to write your bio
-- **Publications:** Add entries to `_bibliography/papers.bib`
-- **Blog posts:** Create files in `_posts/` with format `YYYY-MM-DD-title.md`
+**Must stay in sync for GitHub Pages:**
 
-### Customize Appearance
+| Site type | `url` | `baseurl` |
+|-----------|--------|-----------|
+| `username.github.io` | `https://username.github.io` | *(empty)* |
+| Project site | `https://username.github.io` | `/repo-name/` |
 
-- **Theme color:** Edit `_config.yml`, search for `theme_color`
-- **Enable/disable sections:** In `_config.yml`, look for `enabled: false/true` options
-- **Social media links:** Edit `_data/socials.yml`
+Portfolio UI toggles (same file, search for these keys):
 
-### Learn More
-
-- Installation and local setup options: [INSTALL.md](INSTALL.md)
-- Full customization guide: [CUSTOMIZE.md](CUSTOMIZE.md)
-- Frequently asked questions: [FAQ.md](FAQ.md)
-- Troubleshooting: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-
-### Get Help from AI
-
-Use the **GitHub Copilot Customization Agent** (if you have Copilot) to:
-
-- Get step-by-step help with customizations
-- Understand how to modify specific features
-- Apply changes directly to your site
-
-See [CUSTOMIZE.md § GitHub Copilot Customization Agent](CUSTOMIZE.md#github-copilot-customization-agent) for details.
+```yaml
+enable_darkmode: true        # theme switch in nav
+enable_liquid_glass: true      # glass panels on hero/nav/cards — set false for simpler/faster UI
+navbar_fixed: true
+search_enabled: false          # portfolio nav is minimal; leave off unless you need search
+```
 
 ---
 
-**Common first steps:**
+## 3. Copy & conversion hub (`_data/portfolio.yml`)
 
-- Change the theme color in `_config.yml`
-- Add your social media links in `_data/socials.yml`
-- Upload your profile picture to `assets/img/prof_pic.jpg`
-- Write a short bio in `_pages/about.md`
+**Most homepage text is here** — not scattered across Liquid files. After editing, refresh the browser (Jekyll reloads in Docker).
 
-Happy customizing! 🎉
+| Section | What it controls |
+|---------|------------------|
+| `hero.role` | One line under your name (specialization + value) |
+| `hero.subtitle` | Supporting paragraph in the hero |
+| `hero.proof_line` | Credibility line under hero (schools / employers) |
+| `buttons.work` / `buttons.cv` | Hero CTA labels and URLs |
+| `nav.cta` / `nav.contact` | Nav résumé button + Contact link (`/#contact`) |
+| `cta.*` | Bottom “Ready to collaborate?” band (email + copy + résumé). **`calendly_url` is unused** — no calendar integration |
+| `institutions` | “Experience at” logo strip on the home page |
+| `stack` | Tech chips section |
+| `highlights` | Three collaboration cards (`text`, `institution`, optional `byline`) |
+| `focus_areas` | Anchor tabs (must match `id` on pillars, e.g. `#pillar-2`) |
+| `pillars` / `pillars_title` | “What I work on” rows |
+| `stats` | Full-width stat band |
+| `project_filters` | Work page filter buttons (`id` must match project `category`) |
+| `pages.work.intro` | Intro paragraph on `/projects/` |
+
+**Example — change hero only:**
+
+```yaml
+hero:
+  role: Your specialization — one clear line.
+  subtitle: What you build and for whom.
+  proof_line: Org A · Org B · Org C
+```
+
+---
+
+## 4. About page & photo
+
+| File | Purpose |
+|------|---------|
+| `_pages/about.md` | Home page body (`permalink: /`, `layout: about`). Markdown below the front matter = intro under “What I work on”. |
+| `assets/img/prof_pic.jpg` | Hero headshot (path set in `about.md` → `profile.image`) |
+| `_layouts/about.liquid` | Home structure (hero, logos, pillars, stats, contact). **Rarely edit** — change copy in YAML/Markdown instead. |
+
+In `_pages/about.md`:
+
+```yaml
+profile:
+  image: prof_pic.jpg      # file lives in assets/img/
+  image_circular: false
+  more_info: >
+    <p>Your city, country</p>
+social: true               # shows icons from _data/socials.yml
+```
+
+---
+
+## 5. Contact, résumé & social links
+
+| File | Purpose |
+|------|---------|
+| `_data/socials.yml` | `email`, `github_username`, `linkedin_url`, `cv_pdf` |
+| `assets/pdf/AbeerSethia_Resume.pdf` | Résumé linked from nav and CTAs — **replace file, keep path** or update URLs in `portfolio.yml` + `socials.yml` |
+
+Email + “Copy email” use `socials.email`. The copy button is wired in `_scripts/portfolio-interactions.js` (built to `/assets/js/portfolio-interactions.js`).
+
+Contact block at the bottom of home and case studies: `_includes/contact-cta.liquid` (copy comes from `portfolio.yml` → `cta`).
+
+---
+
+## 6. Work page & projects
+
+**Work grid:** `_pages/projects.md` (layout + filter include).  
+**Cards:** `_includes/project_card.liquid`.  
+**Filters:** client-side in `_scripts/projects-filter.js` (no page reload).
+
+### Add a new case study
+
+1. Copy `_projects/template-project.md` → `_projects/your-slug.md`
+2. Set front matter (see below)
+3. Write body with these **H2 headings** (sticky sidebar TOC on case studies):
+
+   - `## Summary`
+   - `## Challenge`
+   - `## Process`
+   - `## Results`
+   - `## Impact`
+   - `## Links` *(optional)*
+
+4. Set `listed: true` (or omit — default is listed). Use `listed: false` for drafts.
+5. Set `importance:` higher = appears first on the grid.
+6. Set `category:` to one of `project_filters` ids in `portfolio.yml` (e.g. `neuroimaging`, `segmentation`).
+
+**Front matter reference:**
+
+```yaml
+---
+layout: case-study
+title: Short project title
+description: One line for the card and case-study header
+importance: 2
+listed: true
+category: neuroimaging          # must match a filter id (not "all")
+img: assets/img/your-cover.jpg  # or 1.jpg under assets/img/
+hover_video: assets/video/your-loop.mp4   # optional — see below
+github: https://github.com/you/repo
+metrics:
+  - label: Dice (mean)
+    value: "0.92"
+  - label: Modality
+    value: MRI
+---
+```
+
+### Hover preview video (1–2 flagship projects)
+
+- Add a **short (3–5 s), muted, H.264 `.mp4`** under `assets/video/`
+- Set `hover_video: assets/video/filename.mp4` on that project only
+- Optional smaller file: `hover_video_webm: assets/video/filename.webm`
+- Video loads **on first hover** (desktop only); mobile keeps the poster image
+- Respect `prefers-reduced-motion` — no autoplay for those users
+
+**Swap placeholder loops:** replace files in `assets/video/` and update paths in the project markdown. Keep files small (target &lt; 2–3 MB each).
+
+### Hide a project from the grid
+
+```yaml
+listed: false
+```
+
+Or delete the file from `_projects/`.
+
+### Case study layout
+
+`_layouts/case-study.liquid` — header metrics from YAML, body from Markdown, TOC from H2s, contact CTA at bottom.
+
+---
+
+## 7. Institution logos & stack
+
+**Logos:** `assets/img/institutions/` (PNG/SVG). Register in `_data/portfolio.yml`:
+
+```yaml
+institutions:
+  - name: Display name
+    logo: /assets/img/institutions/my-logo.png
+    logo_color: true   # optional — skip gray mono treatment
+```
+
+**Stack chips:** edit the `stack:` list in `portfolio.yml` (rendered by `_includes/stack-strip.liquid`).
+
+---
+
+## 8. Appearance & toggles
+
+| Goal | Where |
+|------|--------|
+| Colors, spacing, type scale | `_sass/_doss-tokens.scss` (`--doss-*` CSS variables) |
+| Buttons, nav, hero, footer | `_sass/_portfolio.scss` |
+| Cards, filters, case study, CTA | `_sass/_portfolio-cro.scss` |
+| Glass effect panels | `_sass/_liquidgl.scss` + `enable_liquid_glass` in `_config.yml` |
+| Global theme (light/dark bg) | `_sass/_themes.scss`, `_sass/_variables.scss` |
+| Button corner radius | `--doss-radius-btn`, `--doss-radius-card` in `_doss-tokens.scss` |
+
+Imported from `assets/css/main.scss` — edit SCSS, save, refresh (Docker rebuilds CSS).
+
+**Disable glass for performance/simplicity:** `_config.yml` → `enable_liquid_glass: false`.
+
+---
+
+## 9. Navigation & extra pages
+
+Nav items come from `_pages/*.md` with `nav: true` and `nav_order:` (lower = earlier).
+
+Current pattern:
+
+- **About** — `_pages/about.md` (`permalink: /`)
+- **Work** — `_pages/projects.md`
+- **CV** — `_pages/cv.md` (`nav: true`)
+- **Contact** — link to `/#contact` from `portfolio.yml` → `nav.contact`
+
+To hide al-folio demo pages from nav, set `nav: false` in their front matter (blog, publications, teaching, etc.).
+
+Dropdown example: `_pages/dropdown.md` (`nav: false` on yours).
+
+---
+
+## 10. Before you commit
+
+From the repo root:
+
+```bash
+# Format (first time: npm install --save-dev prettier @shopify/prettier-plugin-liquid)
+npx prettier . --write
+
+# Build
+docker compose run --rm jekyll jekyll build
+```
+
+Manually check **http://localhost:8080**:
+
+- Home hero, logos, stats, contact CTAs  
+- **Work** — filters, cards, hover video (desktop)  
+- One **case study** — TOC, metrics, dark mode  
+- **Copy email** and **Download résumé** links  
+
+---
+
+## 11. Deploy to GitHub Pages
+
+For `abeersethia.github.io`:
+
+1. Push to `main` (or your default branch).
+2. **Actions** → wait for deploy workflow (green check).
+3. **Settings → Pages** → source **gh-pages** branch (if not already).
+
+Live URL: **https://abeersethia.github.io**
+
+If you change `url` / `baseurl`, rebuild and verify asset paths (images, PDF, videos).
+
+---
+
+## File map (what lives where)
+
+```
+_config.yml              Site name, URL, feature flags (dark mode, liquidGL)
+_data/portfolio.yml      Homepage + nav + CTA + filters + pillars + stats
+_data/socials.yml        Email, GitHub, LinkedIn, CV path
+_pages/about.md          Home intro markdown + profile photo
+_pages/projects.md       Work page shell
+_projects/*.md           Case studies (grid + detail pages)
+_layouts/about.liquid    Home layout
+_layouts/case-study.liquid
+_includes/project_card.liquid
+_includes/contact-cta.liquid
+_includes/logo-strip.liquid
+_includes/stack-strip.liquid
+_includes/highlights.liquid
+_scripts/portfolio-interactions.js   Copy email, scroll reveal, hover video
+_scripts/projects-filter.js          Work grid filters
+_scripts/case-study-toc.js           Case study sidebar TOC
+_sass/_doss-tokens.scss              Design tokens
+_sass/_portfolio.scss
+_sass/_portfolio-cro.scss
+assets/img/                          Photos, project covers, institution logos
+assets/video/                        Hover loop MP4s (optional WebM)
+assets/pdf/                          Résumé PDF
+```
+
+**Do not edit** generated paths under `_site/` or commit `.jekyll-cache/`.
+
+---
+
+**Common edits checklist**
+
+- [ ] Hero: `_data/portfolio.yml` → `hero`, `buttons`
+- [ ] Bio paragraph: `_pages/about.md`
+- [ ] Photo: `assets/img/prof_pic.jpg`
+- [ ] Résumé: `assets/pdf/…` + paths in `socials.yml` / `portfolio.yml`
+- [ ] New project: copy `_projects/template-project.md`, set `listed: true`, write H2 sections
+- [ ] Hover clip: `assets/video/` + `hover_video` in project front matter
+- [ ] Logos: `assets/img/institutions/` + `institutions` in `portfolio.yml`
+- [ ] Email / socials: `_data/socials.yml`
+
+For troubleshooting: [TROUBLESHOOTING.md](TROUBLESHOOTING.md). For agent/CI conventions: [AGENTS.md](AGENTS.md).
