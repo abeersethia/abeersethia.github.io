@@ -4,7 +4,8 @@ title: Attractor manifold time-series reconstruction
 description: Reconstructing nonlinear dynamical time series from attractor embeddings using temporal convolutional networks—KLIV Lab, IIT Kharagpur.
 importance: 4
 listed: true
-category: research
+categories:
+  - research
 img: assets/img/projects/iit-kharagpur-attractor-reconstruction.png
 metrics:
   - label: Role

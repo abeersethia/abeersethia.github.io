@@ -4,7 +4,8 @@ title: Expert-guided liver lesion segmentation (CT/MRI)
 description: Clinical-style 3D segmentation of liver lesions in CT and MRI with radiology-guided labels—Philips Innovation Campus, Bangalore.
 importance: 3
 listed: true
-category: industry
+categories:
+  - industry
 img: assets/img/projects/philips-liver-segmentation.png
 metrics:
   - label: Role

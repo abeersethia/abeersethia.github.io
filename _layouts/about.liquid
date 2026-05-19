@@ -22,7 +22,7 @@ layout: default
           <a class="btn-doss btn-doss--ghost" href="{{ p.buttons.cv.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ p.buttons.cv.label }}</a>
         </div>
         {% if page.social %}
-          <div class="hero__links">{% include portfolio_social_links.liquid %}</div>
+          <div class="hero__links portfolio-social-links">{% include portfolio_social_links.liquid %}</div>
         {% endif %}
       </div>
       {% if page.profile and page.profile.image %}

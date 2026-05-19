@@ -1,8 +1,8 @@
 {% comment %}
   Project card — image, metrics, minimal actions (no hover video, no glass).
 {% endcomment %}
-{% assign cat = project.category | default: 'all' %}
-<article class="project-card card h-100" data-category="{{ cat }}">
+{% include project_category_slugs.liquid project=project %}
+<article class="project-card card h-100" data-categories="{{ project_cat_slugs }}">
   {% if project.img %}
     <a
       class="project-card__media"
@@ -20,8 +20,8 @@
   {% endif %}
 
   <div class="card-body">
-    {% if project.category %}
-      <p class="project-card__category">{{ project.category | replace: '-', ' ' }}</p>
+    {% if project_cat_label != '' %}
+      <p class="project-card__category">{{ project_cat_label }}</p>
     {% endif %}
     <h3 class="card-title">{{ project.title }}</h3>
     <p class="card-text">{{ project.description }}</p>

@@ -4,7 +4,8 @@ layout: default
 <div class="post case-study">
   <header class="case-study__header">
     <p class="case-study__eyebrow">
-      {% if page.category %}{{ page.category | replace: '-', ' ' }}{% else %}Case study{% endif %}
+      {% include project_category_slugs.liquid project=page %}
+      {% if project_cat_label != '' %}{{ project_cat_label }}{% else %}Case study{% endif %}
     </p>
     <h1 class="post-title case-study__title">{{ page.title }}</h1>
     <p class="post-description case-study__lede">{{ page.description }}</p>

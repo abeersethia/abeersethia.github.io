@@ -1,0 +1,26 @@
+{% comment %}
+  Resolve project.categories (array) or project.category (string) into a space-separated
+  slug list for data-categories and a human-readable label.
+  Requires: include.project
+  Sets: project_cat_slugs, project_cat_label
+{% endcomment %}
+{% assign _p = include.project %}
+{% assign project_cat_slugs = '' %}
+{% assign project_cat_label = '' %}
+
+{% if _p.categories and _p.categories.size > 0 %}
+  {% for c in _p.categories %}
+    {% assign project_cat_slugs = project_cat_slugs | append: c | append: ' ' %}
+    {% assign piece = c | replace: '-', ' ' %}
+    {% if project_cat_label == '' %}
+      {% assign project_cat_label = piece %}
+    {% else %}
+      {% assign project_cat_label = project_cat_label | append: ' · ' | append: piece %}
+    {% endif %}
+  {% endfor %}
+{% elsif _p.category and _p.category != '' %}
+  {% assign project_cat_slugs = _p.category %}
+  {% assign project_cat_label = _p.category | replace: '-', ' ' %}
+{% endif %}
+
+{% assign project_cat_slugs = project_cat_slugs | strip %}

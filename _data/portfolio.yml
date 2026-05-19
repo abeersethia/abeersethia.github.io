@@ -41,10 +41,13 @@ current_focus:
   - Personal (Ongoing) - Federated Learning for Medical Image Analysis
   - Personal (Ongoing) - Portfolio Website
 
+# Filter ids must match slug(s) on each project. Use one or more per project:
+#   categories: [research, coursework]
+# Legacy single value still works: category: research
 project_filters:
   - id: all
     label: All
-  - id: course
+  - id: coursework
     label: Coursework / Academic
   - id: research
     label: Research

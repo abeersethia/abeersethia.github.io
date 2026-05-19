@@ -4,7 +4,9 @@ title: Trackerless ultrasound pose estimation & 3D reconstruction
 description: Self-supervised temporal pose estimation from B-mode sequences for freehand 3D ultrasound—limited pose labels, clinical-style review paths.
 importance: 5
 listed: true
-category: research
+categories: 
+    - research
+    - coursework
 img: assets/img/projects/iisc-ultrasound-3d-reconstruction.png
 metrics:
   - label: Role

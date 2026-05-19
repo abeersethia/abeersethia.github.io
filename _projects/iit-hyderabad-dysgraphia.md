@@ -4,7 +4,8 @@ title: Dysgraphia handwriting analysis pipeline
 description: Computer-vision and ML pipeline for handwriting-based dysgraphia screening—CfHE summer project, IIT Hyderabad.
 importance: 2
 listed: true
-category: research
+categories:
+  - research
 img: assets/img/projects/iit-hyderabad-dysgraphia.png
 metrics:
   - label: Role
