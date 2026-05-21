@@ -321,7 +321,7 @@ _includes/stack-strip.liquid
 _includes/highlights.liquid
 _scripts/portfolio-interactions.js   Copy email, scroll reveal, hover video
 _scripts/projects-filter.js          Work grid filters
-_scripts/case-study-toc.js           Case study sidebar TOC
+assets/js/case-study-toc.js          Case study sidebar TOC + PDF viewer
 _sass/_doss-tokens.scss              Design tokens
 _sass/_portfolio.scss
 _sass/_portfolio-cro.scss
