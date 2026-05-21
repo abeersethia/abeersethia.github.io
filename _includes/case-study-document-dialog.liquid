@@ -50,9 +50,14 @@
         </button>
       </div>
     </header>
-    <div class="case-study-certificate__viewport{% unless doc_is_pdf %} case-study-certificate__viewport--image{% endunless %}">
+    <div class="case-study-certificate__viewport{% if doc_is_pdf %} case-study-certificate__viewport--pdf{% else %} case-study-certificate__viewport--image{% endif %}">
       {% if doc_is_pdf %}
-        <iframe class="case-study-certificate__pdf" src="{{ doc_url }}" title="{{ doc_alt }}"></iframe>
+        <div class="case-study-certificate__pdf-viewer" data-src="{{ doc_url }}" data-title="{{ doc_alt }}">
+          <div class="case-study-certificate__pdf-pages" role="document" aria-label="{{ doc_alt }}"></div>
+        </div>
+        <noscript>
+          <iframe class="case-study-certificate__pdf-fallback" src="{{ doc_url }}#view=FitH" title="{{ doc_alt }}"></iframe>
+        </noscript>
       {% else %}
         <figure class="case-study-certificate__figure">
           <img

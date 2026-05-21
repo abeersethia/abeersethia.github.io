@@ -15,6 +15,10 @@ metrics:
     value: IISc Bangalore
   - label: Period
     value: Dec 2025 – Present
+mid_term_presentation:
+  label: Mid-Term Presentation
+  file: assets/pdf/iisc-ultrasound-mid-term-presentation.pdf
+  alt: "IISc Bangalore — mid-term presentation on trackerless ultrasound pose estimation and 3D reconstruction (UTSAAH Lab)"
 ---
 
 ## Summary
@@ -51,4 +55,5 @@ Supports **trackerless** 3D ultrasound research at IISc: lower hardware friction
 
 ## Links
 
+- **Mid-Term Presentation** — progress update on self-supervised pose estimation and 3D reconstruction (IISc / UTSAAH Lab).
 - Thesis and code links will be added when the repository is public.

@@ -886,7 +886,30 @@ html[data-theme="dark"] .project-card {
 
 // —— Case study layout ——
 
+// Anchor scroll: clear floating glass navbar (matches body padding + breathing room)
+body.portfolio-site.fixed-top-nav:has(.portfolio-header) {
+  --case-study-scroll-offset: calc(3.85rem + 1.35rem + 0.75rem);
+}
+
+body.portfolio-site.fixed-top-nav:not(:has(.portfolio-header)) {
+  --case-study-scroll-offset: calc(3.5rem + 0.75rem);
+}
+
 .case-study {
+  &__back {
+    margin: 0 0 1.25rem;
+  }
+
+  &__back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
   &__header {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
@@ -908,6 +931,67 @@ html[data-theme="dark"] .project-card {
   &__lede {
     max-width: 40rem;
     margin-bottom: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  &__body {
+    text-align: justify;
+    text-justify: inter-word;
+
+    p,
+    li,
+    blockquote {
+      text-align: justify;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-align: left;
+      scroll-margin-top: var(--case-study-scroll-offset, 5.5rem);
+    }
+
+    .case-study-figure {
+      display: block;
+      clear: both;
+      float: none;
+      width: 100%;
+      max-width: min(34rem, 88%);
+      margin: 1.75rem auto;
+      padding: 0;
+      text-align: center;
+
+      picture {
+        display: block;
+        float: none;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      img,
+      .case-study-figure__img {
+        display: block;
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      figcaption.caption {
+        display: block;
+        float: none;
+        clear: both;
+        margin: 0.65rem 0 0;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+        color: var(--doss-text-grey-1);
+        text-align: center;
+      }
+    }
   }
 
   &__metrics {
@@ -997,6 +1081,7 @@ html[data-theme="dark"] .project-card {
   &--document {
     width: min(94vw, 58rem);
     max-width: 94vw;
+    height: min(92vh, 52rem);
     max-height: min(92vh, 52rem);
   }
 
@@ -1004,6 +1089,8 @@ html[data-theme="dark"] .project-card {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
+    min-height: min(80vh, 46rem);
     max-height: min(92vh, 52rem);
     border: 1px solid var(--doss-border);
     border-radius: 14px;
@@ -1145,48 +1232,102 @@ html[data-theme="dark"] .project-card {
   }
 
   &__viewport {
-    flex: 1;
+    flex: 1 1 auto;
     min-height: 0;
     padding: 0.65rem;
     background: #e8e8ea;
+    overflow: hidden;
+
+    &--pdf {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      padding: 0.5rem;
+      overflow: hidden;
+    }
 
     &--image {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: stretch;
+      min-height: 0;
       overflow: auto;
-      min-height: min(78vh, 44rem);
     }
   }
 
   &__figure {
     margin: 0;
+    flex: 1 1 auto;
+    min-height: 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  &__pdf {
+  &__pdf-viewer {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    overflow: auto;
+    border-radius: 8px;
+    background: transparent;
+  }
+
+  &__pdf-pages {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    min-height: 100%;
+    padding: 0.5rem 0.35rem;
+    box-sizing: border-box;
+
+    &--multi {
+      gap: 0.75rem;
+    }
+  }
+
+  &__pdf-status {
+    margin: 0;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--doss-text-grey-2);
+  }
+
+  &__pdf-page {
     display: block;
     width: 100%;
-    height: min(78vh, 44rem);
-    min-height: 20rem;
+    max-width: 100%;
+    height: auto;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.06),
+      0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  &__pdf-fallback {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: min(72vh, 40rem);
     border: none;
     border-radius: 8px;
     background: #fff;
-    box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.06),
-      0 8px 24px rgba(0, 0, 0, 0.08);
   }
 
   &__img {
     display: block;
-    width: auto;
+    width: 100%;
+    height: 100%;
     max-width: 100%;
-    height: auto;
-    max-height: min(76vh, 42rem);
-    margin: 0 auto;
+    max-height: 100%;
+    margin: 0;
     border-radius: 8px;
     object-fit: contain;
     background: #fff;
@@ -1229,7 +1370,12 @@ html[data-theme="dark"] {
       background: #2a2a2e;
     }
 
-    &__pdf,
+    &__pdf-page {
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.28);
+    }
+
     &__img {
       box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.08),
@@ -1252,7 +1398,7 @@ html[data-theme="dark"] .case-study__body blockquote {
 }
 
 .case-study-toc {
-  top: 5.5rem;
+  top: var(--case-study-scroll-offset, 5.5rem);
   padding-right: 0.5rem;
   font-size: 0.8125rem;
 

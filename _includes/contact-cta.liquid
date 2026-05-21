@@ -3,7 +3,7 @@
 <section class="contact-cta{% if include.compact %} contact-cta--compact{% endif %}" aria-label="Contact">
   <div class="contact-cta__inner">
     {% unless include.hide_title %}
-      <h2 class="contact-cta__title">{{ p.cta.title }}</h2>
+      <h2 class="contact-cta__title" data-toc-skip>{{ p.cta.title }}</h2>
     {% endunless %}
     <div class="contact-cta__actions">
       <a class="btn-doss btn-doss--primary" href="mailto:{{ email }}">{{ p.cta.button_label }}</a>

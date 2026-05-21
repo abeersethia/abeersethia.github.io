@@ -40,6 +40,14 @@ Research internship at the **KLIV Lab, IIT Kharagpur**, on reconstructing **time
 
 **Task:** Design a **TCN-based reconstruction** pipeline that maps attractor samples back to consistent time-series segments, with losses that preserve dynamical structure where possible (including topology-aware objectives explored in the project).
 
+{% include figure.liquid
+  path="assets/img/projects/iit-kharagpur-attractor-manifold-diagram.png"
+  figure_class="case-study-figure"
+  class="case-study-figure__img"
+  alt="Lorenz Attractor Reconstruction"
+  caption="Lorenz Attractor Reconstruction"
+%}
+
 ## Approach
 
 1. **Embedding & preprocessing** — Build attractor representations from multivariate series; fix windowing, delay parameters, and normalization per dataset release.

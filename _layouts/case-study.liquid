@@ -2,6 +2,10 @@
 layout: default
 ---
 <div class="post case-study">
+  <nav class="case-study__back" aria-label="Back to projects">
+    <a class="case-study__back-link btn-doss btn-doss--ghost" href="{{ '/projects/' | relative_url }}">← All work</a>
+  </nav>
+
   <header class="case-study__header">
     <p class="case-study__eyebrow">
       {% include project_category_slugs.liquid project=page %}
@@ -21,7 +25,7 @@ layout: default
       </ul>
     {% endif %}
 
-    {% if page.github or page.certificate or page.ppt %}
+    {% if page.github or page.certificate or page.ppt or page.mid_term_presentation %}
       <div class="case-study__header-actions">
         {% if page.github %}
           <a class="btn-doss btn-doss--primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">View code</a>
@@ -44,6 +48,15 @@ layout: default
             {{ page.ppt.label | default: 'PPT' }}
           </button>
         {% endif %}
+        {% if page.mid_term_presentation %}
+          <button
+            type="button"
+            class="btn-doss btn-doss--ghost js-case-study-certificate-open"
+            data-certificate-dialog="case-study-mid-term-presentation"
+          >
+            {{ page.mid_term_presentation.label | default: 'Mid-Term Presentation' }}
+          </button>
+        {% endif %}
       </div>
     {% endif %}
   </header>
@@ -54,22 +67,24 @@ layout: default
   {% if page.ppt %}
     {% include case-study-document-dialog.liquid attachment=page.ppt dialog_id='case-study-ppt' %}
   {% endif %}
+  {% if page.mid_term_presentation %}
+    {% include case-study-document-dialog.liquid attachment=page.mid_term_presentation dialog_id='case-study-mid-term-presentation' %}
+  {% endif %}
 
   <div class="row case-study__layout">
     <aside class="col-lg-3 case-study__sidebar-col">
-      <nav id="case-study-toc" class="case-study-toc sticky-top" data-toggle="toc" aria-label="Case study sections"></nav>
+      <nav id="case-study-toc" class="case-study-toc sticky-top" aria-label="Case study sections"></nav>
     </aside>
     <article class="col-lg-9 case-study__body portfolio-markdown">
       {{ content }}
     </article>
   </div>
 
-  <div class="page-actions">
-    <a class="btn-doss btn-doss--ghost" href="{{ '/projects/' | relative_url }}">← All work</a>
-    {% if page.github %}
+  {% if page.github %}
+    <div class="page-actions">
       <a class="btn-doss btn-doss--primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">View code</a>
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
 
   {% include contact-cta.liquid %}
 </div>

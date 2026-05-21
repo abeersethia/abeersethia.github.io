@@ -3,11 +3,6 @@ layout: about
 title: About
 permalink: /
 
-profile:
-  align: right
-  image: graphic-designer-illustration.svg
-  image_circular: false
-
 social: true
 ---
 

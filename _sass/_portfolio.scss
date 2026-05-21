@@ -375,6 +375,21 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass {
   -webkit-mask-position: center;
 }
 
+.doss-page .hero__illustration-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  filter: none;
+  transition: filter 0.35s ease;
+}
+
+// Profile illustration: dark strokes on light in light mode, inverted in dark mode
+html[data-theme="dark"] .doss-page .hero__illustration-img {
+  filter: invert(1) brightness(1.08);
+}
+
 .doss-page .hero__photo {
   border-radius: 2px;
   display: block;
