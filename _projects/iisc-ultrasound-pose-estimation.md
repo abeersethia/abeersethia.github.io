@@ -29,7 +29,7 @@ Bachelor thesis work at the Indian Institute of Science on self-supervised tempo
 
 **Setting:** Conventional freehand 3D ultrasound reconstruction requires external tracking devices to estimate the spatial pose of each 2D ultrasound frame. Although effective, these systems introduce additional hardware cost, calibration overhead, and workflow complexity, limiting scalability in portable and point-of-care imaging environments.
 
-**Collaborators:** [Dr. Manish Arora](https://dm.iisc.ac.in/utsaah/dr-manish-arora/) and [Ms. Saladi Pravallika (PMRF)](https://dm.iisc.ac.in/utsaah/saladi-pravallika/), Department of Computational and Data Sciences, IISc Bangalore.
+**Collaborators:** [Dr. Manish Arora](https://dm.iisc.ac.in/utsaah/dr-manish-arora/) and [Ms. Saladi Pravallika (PMRF)](https://dm.iisc.ac.in/utsaah/saladi-pravallika/), UTSAAH Lab, IISc Bangalore.
 
 ## Challenge
 
