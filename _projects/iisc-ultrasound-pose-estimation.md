@@ -2,7 +2,7 @@
 layout: case-study
 title: Trackerless ultrasound pose estimation & 3D reconstruction
 description: Self-supervised temporal pose estimation from B-mode sequences for freehand 3D ultrasound—limited pose labels, clinical-style review paths.
-importance: 5
+importance: 6
 listed: true
 categories: 
     - research

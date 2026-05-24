@@ -2,7 +2,7 @@
 layout: case-study
 title: Expert-guided liver lesion segmentation (CT/MRI)
 description: Clinical-style 3D segmentation of liver lesions in CT and MRI with radiology-guided labels—Philips Innovation Campus, Bangalore.
-importance: 3
+importance: 4
 listed: true
 categories:
   - industry
