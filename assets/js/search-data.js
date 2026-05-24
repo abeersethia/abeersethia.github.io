@@ -402,7 +402,12 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-hippocampal-volume-quantification-in-alzheimer-39-s-progression",
+          section: "News",},{id: "projects-dropedge-with-johnson-lindenstrauss-projection",
+          title: 'DropEdge++ with Johnson–Lindenstrauss Projection',
+          description: "Minor project — structure-aware graph regularization and dimensionality reduction for scalable deep GCNs on citation networks.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/dropedge++/";
+            },},{id: "projects-hippocampal-volume-quantification-in-alzheimer-39-s-progression",
           title: 'Hippocampal volume quantification in Alzheimer&amp;#39;s progression',
           description: "End-to-end AI pipeline from curated MRI to automated hippocampal volumetry, with a path to DICOM-based clinical workflows.",
           section: "Projects",handler: () => {
@@ -427,11 +432,6 @@ ninja.data = [{
           description: "Clinical-style 3D segmentation of liver lesions in CT and MRI with radiology-guided labels—Philips Innovation Campus, Bangalore.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/philips-liver-segmentation/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/template-project/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
