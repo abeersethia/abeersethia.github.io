@@ -5,7 +5,6 @@ description: Minor project — structure-aware graph regularization and dimensio
 importance: 3
 listed: true
 categories:
-  - research
   - coursework
 img: assets/img/projects/dropedge-plusplus.png
 metrics:
