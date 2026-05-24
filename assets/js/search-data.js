@@ -402,7 +402,12 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-dropedge-with-johnson-lindenstrauss-projection",
+          section: "News",},{id: "projects-bert-based-sandwichformer-for-cola-and-imdb",
+          title: 'BERT-based SandwichFormer for CoLA and IMDb',
+          description: "Coursework (NLP) — custom BERT variant with sandwiched encoder blocks and Longformer attention for grammaticality and sentiment classification.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/bert-sandwich-former/";
+            },},{id: "projects-dropedge-with-johnson-lindenstrauss-projection",
           title: 'DropEdge++ with Johnson–Lindenstrauss Projection',
           description: "Minor project — structure-aware graph regularization and dimensionality reduction for scalable deep GCNs on citation networks.",
           section: "Projects",handler: () => {
