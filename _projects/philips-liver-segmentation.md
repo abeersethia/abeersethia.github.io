@@ -51,7 +51,3 @@ Clinical diagnostics internship at **Philips Innovation Campus, Bangalore**, on 
 ## Impact
 
 Shortens the loop between **ML and clinical stakeholders** at Philips—clear what changed between runs when scanner protocols or label guidelines evolve.
-
-## Links
-
-- Use the **Certificate** button above to view the Philips internship completion certificate (Apr–Jul 2025).
