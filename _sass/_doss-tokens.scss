@@ -42,6 +42,10 @@
   --doss-body-size: 1rem;
   --doss-body-lh: 1.65;
   --doss-caption-size: 0.8125rem;
+
+  /* Project card thumbnails: letterbox padding when image is smaller than 16:9 */
+  --doss-project-media-bg: var(--doss-bg-light-2);
+  --doss-project-media-padding: clamp(0.5rem, 2vw, 1rem);
 }
 
 html[data-theme="dark"] {
