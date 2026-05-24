@@ -6,6 +6,7 @@ importance: 6
 listed: true
 categories:
   - research
+  - coursework
 img: assets/img/projects/dropedge-plusplus.png
 metrics:
   - label: Accuracy
