@@ -2,12 +2,11 @@
 layout: case-study
 title: DropEdge++ with Johnson–Lindenstrauss Projection
 description: **Minor Project:** Structure-aware graph regularization and dimensionality reduction for scalable deep GCNs on citation networks.
-importance: 1
+importance: 4
 listed: true
-categories: 
-    - research
-    - coursework
-img: assets/img/2.jpg
+categories:
+  - research
+img: assets/img/projects/iit-kharagpur-attractor-reconstruction.png
 metrics:
   - label: Accuracy
     value: "86.2%"
