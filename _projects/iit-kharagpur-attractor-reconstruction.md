@@ -65,6 +65,3 @@ Research internship at the **KLIV Lab, IIT Kharagpur**, on reconstructing **time
 Bridges **dynamical systems** thinking and **deep sequence models** at KLIV: a template for asking whether reconstructed series remain physically plausible, not only low MSE.
 
 ## Links
-
-- **Certificate** — internship completion letter (Apr–Oct 2025).
-- **PPT** — project summary presentation (PDF).
