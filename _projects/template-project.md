@@ -18,7 +18,7 @@ metrics:
 
 ## Context
 
-Research project focused on improving the scalability and robustness of deep Graph Convolutional Networks (GCNs) for node classification on citation graph benchmarks such as Cora, Citeseer, and PubMed. The work explored how structure-aware graph regularization and dimensionality reduction could be combined to address oversmoothing in deeper GCN architectures while improving computational efficiency. :contentReference[oaicite:0]{index=0}
+Research project focused on improving the scalability and robustness of deep Graph Convolutional Networks (GCNs) for node classification on citation graph benchmarks such as Cora, Citeseer, and PubMed. The work explored how structure-aware graph regularization and dimensionality reduction could be combined to address oversmoothing in deeper GCN architectures while improving computational efficiency.
 
 ## Challenge
 
@@ -28,22 +28,22 @@ The objective was to design a framework that:
 - Preserves meaningful graph structure during propagation,
 - Enables stable training of deeper GCN architectures,
 - Reduces feature dimensionality without significantly harming graph geometry,
-- Improves runtime and memory efficiency while maintaining strong classification performance. :contentReference[oaicite:1]{index=1}
+- Improves runtime and memory efficiency while maintaining strong classification performance.
 
 ## Approach
 
 1. **Feature Compression with JL Projection**  
-   Applied Johnson–Lindenstrauss (JL) random projection to compress sparse node features while approximately preserving pairwise distances and neighborhood geometry. Feature dimensions were reduced from 1433 to lower-dimensional embeddings such as 512. :contentReference[oaicite:2]{index=2}
+   Applied Johnson–Lindenstrauss (JL) random projection to compress sparse node features while approximately preserving pairwise distances and neighborhood geometry. Feature dimensions were reduced from 1433 to lower-dimensional embeddings such as 512.
 
 2. **Structure-Aware DropEdge++**  
    Extended standard DropEdge regularization using:
    - Layer-dependent edge dropping schedules,
    - Feature-aware edge retention based on cosine similarity in projected feature space.  
    
-   This adaptive strategy retained semantically informative connections while preventing excessive graph smoothing in deeper layers. :contentReference[oaicite:3]{index=3}
+   This adaptive strategy retained semantically informative connections while preventing excessive graph smoothing in deeper layers. 
 
 3. **Residual Deep GCN Training**  
-   Trained residual GCN architectures with dropout, Adam optimization, and early stopping on validation loss. Multiple depths and JL dimensions were evaluated to identify stable performance tradeoffs. :contentReference[oaicite:4]{index=4}
+   Trained residual GCN architectures with dropout, Adam optimization, and early stopping on validation loss. Multiple depths and JL dimensions were evaluated to identify stable performance tradeoffs.
 
 ## Results
 
@@ -52,10 +52,10 @@ The objective was to design a framework that:
 - **Loss:** 0.625
 - **Feature Compression:** ~2.8× reduction (1433 → 512 dimensions)
 
-The proposed framework outperformed the classical GCN baseline (~81.5%) while reducing runtime and memory usage through dimensionality reduction. Structure-aware edge retention improved convergence stability and enabled deeper GCN stacks (up to 32 layers) to remain trainable without severe oversmoothing. :contentReference[oaicite:5]{index=5}
+The proposed framework outperformed the classical GCN baseline (~81.5%) while reducing runtime and memory usage through dimensionality reduction. Structure-aware edge retention improved convergence stability and enabled deeper GCN stacks (up to 32 layers) to remain trainable without severe oversmoothing. 
 
 ## Impact
 
 This work demonstrates how combining geometry-preserving random projections with adaptive graph regularization can improve both the scalability and generalization of deep graph neural networks. The framework provides a lightweight and computationally efficient alternative for large-scale graph learning tasks while maintaining competitive node classification performance.
 
-The project also highlights the practical importance of balancing structural sparsification and feature preservation in modern GNN pipelines, particularly for homophilous citation networks. :contentReference[oaicite:6]{index=6}
+The project also highlights the practical importance of balancing structural sparsification and feature preservation in modern GNN pipelines, particularly for homophilous citation networks.
