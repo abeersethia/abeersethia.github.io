@@ -23,26 +23,28 @@ mid_term_presentation:
 
 ## Summary
 
-Bachelor thesis work at the Indian Institute of Science on **self-supervised temporal ultrasound pose estimation** under limited pose supervision, aimed at **trackerless freehand 3D reconstruction** from B-mode image sequences—reducing reliance on external tracking hardware while keeping reconstruction quality auditable for research use.
+Bachelor thesis work at the Indian Institute of Science on self-supervised temporal ultrasound pose estimation for **trackerless freehand 3D ultrasound reconstruction**, focused on learning probe motion directly from B-mode ultrasound sequences under limited pose supervision. The work aims to reduce dependence on external electromagnetic or optical tracking systems while maintaining temporally consistent motion estimation and reconstruction quality for research-oriented volumetric imaging.
 
 ## Context
 
-**Setting:** Freehand 3D ultrasound depends on knowing how the probe moves between frames. Optical or electromagnetic trackers add cost, calibration burden, and workflow friction in point-of-care settings.
+**Setting:** Conventional freehand 3D ultrasound reconstruction requires external tracking devices to estimate the spatial pose of each 2D ultrasound frame. Although effective, these systems introduce additional hardware cost, calibration overhead, and workflow complexity, limiting scalability in portable and point-of-care imaging environments.
 
 **Collaborators:** [Dr. Manish Arora](https://dm.iisc.ac.in/utsaah/dr-manish-arora/) and [Ms. Saladi Pravallika (PMRF)](https://dm.iisc.ac.in/utsaah/saladi-pravallika/), Department of Computational and Data Sciences, IISc Bangalore.
 
 ## Challenge
 
-**Situation:** Pose labels are sparse or noisy in real acquisition logs; naive supervised pose networks overfit to scanner-specific appearance and fail when domain shifts.
+**Situation:** Ultrasound images contain speckle noise, low-texture regions, inconsistent anatomical landmarks, and only partial spatial observations, making reliable frame-to-frame motion estimation difficult. Small rotational or translational prediction errors accumulate over long sequences, leading to trajectory drift and degraded 3D reconstructions.
 
-**Task:** Learn temporal structure in B-mode streams so pose can be inferred with **minimal explicit pose supervision**, then feed stable pose estimates into a 3D compounding / reconstruction pipeline with clear validation—not a regulatory product claim, but a reproducible research stack.
+**Task:** Develop a trackerless framework capable of learning temporally consistent and geometry-aware representations from ultrasound frame sequences, enabling accurate relative probe motion estimation with minimal labeled pose data for stable volumetric reconstruction.
 
 ## Approach
 
-1. **Data & acquisition** — Curate B-mode sequences with synchronized metadata; standardize preprocessing (spacing, intensity normalization) and document train/val splits by subject where possible.
-2. **Self-supervised learning** — Temporal consistency objectives and auxiliary signals so the model exploits frame-to-frame geometry without dense pose labels on every frame.
-3. **Reconstruction track** — Integrate predicted poses into volume reconstruction; compare against tracker-based or slice-stacking baselines on held-out scans.
-4. **Tooling** — PyTorch training, OpenCV preprocessing, 3D Slicer for visualization, Weights & Biases for experiment tracking.
+1. **Self-supervised temporal learning** - Learn robust frame representations from unlabeled B-mode ultrasound sequences using temporal consistency objectives and auxiliary sequence-based supervision.
+2. **Sequence-based motion estimation** - Predict relative probe translation and rotation from consecutive ultrasound frames using temporal modeling architectures.
+3. **Geometry-aware pose modeling** - Represent motion using rigid-body transformations and quaternion-based rotational parameterization to improve stability and mathematical consistency.
+4. **Temporal consistency constraints** - Incorporate geometric and temporal motion consistency losses to reduce long-term trajectory drift and improve physically plausible motion estimation.
+5. **Reconstruction pipeline integration** - Integrate predicted relative motions into continuous probe trajectories for trackerless volumetric freehand ultrasound reconstruction.
+6. **Evaluation & validation** - Assess pose stability, temporal consistency, and reconstruction continuity on held-out acquisitions using qualitative and quantitative evaluation protocols.
 
 ## Results
 
@@ -51,9 +53,4 @@ Bachelor thesis work at the Indian Institute of Science on **self-supervised tem
 
 ## Impact
 
-Supports **trackerless** 3D ultrasound research at IISc: lower hardware friction for studies that still need volumetric review, with a path to compare learned poses against external tracking when ground truth exists.
-
-## Links
-
-- **Mid-Term Presentation** — progress update on self-supervised pose estimation and 3D reconstruction (IISc / UTSAAH Lab).
-- Thesis and code links will be added when the repository is public.
+Contributes toward **scalable and lower-cost trackerless 3D ultrasound research**, supporting portable and point-of-care volumetric imaging workflows without reliance on dedicated tracking hardware. The framework provides a reproducible research stack for comparing learned probe trajectories against externally tracked baselines when ground-truth pose data is available.
