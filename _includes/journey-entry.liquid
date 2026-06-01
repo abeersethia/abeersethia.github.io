@@ -33,7 +33,7 @@
               {% include journey-entry-toggle.liquid %}
             </summary>
             <div class="journey-entry__body">
-              {% include journey-entry-body.liquid entry=entry remainder=journey_remainder_md %}
+              {% include journey-entry-body.liquid entry=entry remainder=journey_remainder_md entry_index=forloop.index0 %}
             </div>
           </details>
         {% else %}

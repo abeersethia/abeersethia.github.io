@@ -1,0 +1,21 @@
+{% comment %}
+  Modal viewers for case-study / journey attachments.
+  Params: project, dialog_id_prefix, doc_title (optional, for alt text)
+{% endcomment %}
+{% assign p = include.project %}
+{% assign prefix = include.dialog_id_prefix %}
+{% assign doc_title = include.doc_title | default: p.title %}
+{% if p and prefix != blank %}
+  {% if p.certificate %}
+    {% capture dialog_id %}{{ prefix }}-certificate{% endcapture %}
+    {% include case-study-document-dialog.liquid attachment=p.certificate dialog_id=dialog_id doc_title=doc_title %}
+  {% endif %}
+  {% if p.ppt %}
+    {% capture dialog_id %}{{ prefix }}-ppt{% endcapture %}
+    {% include case-study-document-dialog.liquid attachment=p.ppt dialog_id=dialog_id doc_title=doc_title %}
+  {% endif %}
+  {% if p.mid_term_presentation %}
+    {% capture dialog_id %}{{ prefix }}-mid-term-presentation{% endcapture %}
+    {% include case-study-document-dialog.liquid attachment=p.mid_term_presentation dialog_id=dialog_id doc_title=doc_title %}
+  {% endif %}
+{% endif %}

@@ -314,7 +314,7 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass .btn-doss--nav
   }
 
   &__label {
-    margin: 0;
+    margin: 0 0 1.125rem;
     font-family: var(--doss-font-main);
     font-size: var(--doss-h2-size);
     font-weight: 500;
@@ -335,7 +335,7 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass .btn-doss--nav
   }
 
   &__rule {
-    margin: 0 0 1.25rem;
+    margin: 0 0 clamp(1.5rem, 3.5vw, 2rem);
     border: 0;
     border-top: 1px solid var(--doss-border);
     opacity: 1;
@@ -345,7 +345,7 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass .btn-doss--nav
 body.portfolio-site .post:has(.journey-page),
 body.portfolio-site .post:has(.work-page) {
   .post-header {
-    padding-bottom: 0.75rem;
+    padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
     margin-bottom: 0;
     border-bottom: none;
   }
@@ -364,11 +364,19 @@ body.portfolio-site .post:has(.work-page) {
 
 .work-page {
   .project-filters {
+    margin-top: 0;
     margin-bottom: 2.25rem;
   }
 
   .projects {
     margin-top: 0;
+  }
+}
+
+.journey-page {
+  .journey-filters {
+    margin-top: 0;
+    margin-bottom: 2.25rem;
   }
 }
 
@@ -596,6 +604,14 @@ body.portfolio-site .post:has(.work-page) {
   max-width: 40rem;
 }
 
+.journey-entry__attachments {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
 .journey-entry__summary {
   font-size: 0.875rem;
   line-height: 1.55;
@@ -757,7 +773,6 @@ html[data-theme="dark"] {
 .journey-filters {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 2.25rem;
 }
 
 // —— Project cards ——

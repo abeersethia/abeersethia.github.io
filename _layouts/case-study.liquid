@@ -26,49 +26,12 @@ layout: default
     {% endif %}
 
     {% if page.github or page.certificate or page.ppt or page.mid_term_presentation %}
-      <div class="case-study__header-actions">
-        {% if page.github %}
-          <a class="btn-doss btn-doss--primary" href="{{ page.github }}" target="_blank" rel="noopener noreferrer">View code</a>
-        {% endif %}
-        {% if page.certificate %}
-          <button
-            type="button"
-            class="btn-doss btn-doss--ghost js-case-study-certificate-open"
-            data-certificate-dialog="case-study-certificate"
-          >
-            {{ page.certificate.label | default: 'Certificate' }}
-          </button>
-        {% endif %}
-        {% if page.ppt %}
-          <button
-            type="button"
-            class="btn-doss btn-doss--ghost js-case-study-certificate-open"
-            data-certificate-dialog="case-study-ppt"
-          >
-            {{ page.ppt.label | default: 'PPT' }}
-          </button>
-        {% endif %}
-        {% if page.mid_term_presentation %}
-          <button
-            type="button"
-            class="btn-doss btn-doss--ghost js-case-study-certificate-open"
-            data-certificate-dialog="case-study-mid-term-presentation"
-          >
-            {{ page.mid_term_presentation.label | default: 'Mid-Term Presentation' }}
-          </button>
-        {% endif %}
-      </div>
+      {% include case-study-attachment-actions.liquid project=page dialog_id_prefix='case-study' %}
     {% endif %}
   </header>
 
-  {% if page.certificate %}
-    {% include case-study-document-dialog.liquid attachment=page.certificate dialog_id='case-study-certificate' %}
-  {% endif %}
-  {% if page.ppt %}
-    {% include case-study-document-dialog.liquid attachment=page.ppt dialog_id='case-study-ppt' %}
-  {% endif %}
-  {% if page.mid_term_presentation %}
-    {% include case-study-document-dialog.liquid attachment=page.mid_term_presentation dialog_id='case-study-mid-term-presentation' %}
+  {% if page.certificate or page.ppt or page.mid_term_presentation %}
+    {% include case-study-attachment-dialogs.liquid project=page dialog_id_prefix='case-study' doc_title=page.title %}
   {% endif %}
 
   <div class="row case-study__layout">

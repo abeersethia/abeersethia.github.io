@@ -80,3 +80,16 @@
 {% if entry.children and entry.children.size > 0 %}
   {% assign journey_has_more = true %}
 {% endif %}
+
+{% if entry.project != blank %}
+  {% assign journey_linked_project = site.projects | where: 'slug', entry.project | first %}
+  {% if journey_linked_project %}
+    {% if journey_linked_project.github
+      or journey_linked_project.certificate
+      or journey_linked_project.ppt
+      or journey_linked_project.mid_term_presentation
+    %}
+      {% assign journey_has_more = true %}
+    {% endif %}
+  {% endif %}
+{% endif %}

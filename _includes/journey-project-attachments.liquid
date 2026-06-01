@@ -1,0 +1,19 @@
+{% comment %}
+  Project attachment buttons + dialogs for a journey entry (matches Work case study).
+  Params: entry, entry_index
+{% endcomment %}
+{% assign entry = include.entry %}
+{% assign entry_index = include.entry_index | default: 0 %}
+{% assign project_slug = entry.project | default: '' | strip %}
+{% if project_slug != '' %}
+  {% assign journey_project = site.projects | where: 'slug', project_slug | first %}
+  {% if journey_project %}
+    {% capture dialog_prefix %}journey-{{ entry_index }}{% endcapture %}
+    {% include case-study-attachment-actions.liquid project=journey_project dialog_id_prefix=dialog_prefix %}
+    {% include case-study-attachment-dialogs.liquid
+      project=journey_project
+      dialog_id_prefix=dialog_prefix
+      doc_title=journey_project.title
+    %}
+  {% endif %}
+{% endif %}

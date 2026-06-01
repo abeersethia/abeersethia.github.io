@@ -1,6 +1,8 @@
 {% assign entry = include.entry %}
 {% assign body_md = include.remainder | default: '' | strip %}
 
+{% include journey-project-attachments.liquid entry=entry entry_index=include.entry_index %}
+
 {% if body_md == blank and entry.summary != blank %}
   {% assign body_md = entry.summary | strip %}
 {% endif %}

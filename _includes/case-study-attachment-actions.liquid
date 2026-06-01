@@ -1,0 +1,42 @@
+{% comment %}
+  Attachment action buttons (code, certificate, PPT, mid-term deck).
+  Params: project, dialog_id_prefix (e.g. case-study or journey-0)
+{% endcomment %}
+{% assign p = include.project %}
+{% assign prefix = include.dialog_id_prefix %}
+{% if p and prefix != blank %}
+  {% if p.github or p.certificate or p.ppt or p.mid_term_presentation %}
+  <div class="case-study__header-actions journey-entry__attachments">
+    {% if p.github %}
+      <a class="btn-doss btn-doss--primary" href="{{ p.github }}" target="_blank" rel="noopener noreferrer">View code</a>
+    {% endif %}
+    {% if p.certificate %}
+      <button
+        type="button"
+        class="btn-doss btn-doss--ghost js-case-study-certificate-open"
+        data-certificate-dialog="{{ prefix }}-certificate"
+      >
+        {{ p.certificate.label | default: 'Certificate' }}
+      </button>
+    {% endif %}
+    {% if p.ppt %}
+      <button
+        type="button"
+        class="btn-doss btn-doss--ghost js-case-study-certificate-open"
+        data-certificate-dialog="{{ prefix }}-ppt"
+      >
+        {{ p.ppt.label | default: 'PPT' }}
+      </button>
+    {% endif %}
+    {% if p.mid_term_presentation %}
+      <button
+        type="button"
+        class="btn-doss btn-doss--ghost js-case-study-certificate-open"
+        data-certificate-dialog="{{ prefix }}-mid-term-presentation"
+      >
+        {{ p.mid_term_presentation.label | default: 'Mid-Term Presentation' }}
+      </button>
+    {% endif %}
+  </div>
+  {% endif %}
+{% endif %}

@@ -16,7 +16,8 @@
 {% if att.alt %}
   {% assign doc_alt = att.alt %}
 {% else %}
-  {% assign doc_alt = page.title | append: ' — ' | append: att.label | default: 'document' %}
+  {% assign doc_parent_title = include.doc_title | default: page.title %}
+  {% assign doc_alt = doc_parent_title | append: ' — ' | append: att.label | default: 'document' %}
 {% endif %}
 {% assign doc_label = att.label | default: 'Document' %}
 {% assign doc_is_pdf = false %}

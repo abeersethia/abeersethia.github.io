@@ -2,6 +2,7 @@
 #
 # category: research | industry | education  (used by filter tabs)
 # Each entry: title, org, summary, logo (root only), dates, optional children
+# project: slug of matching _projects/*.md (shows Work tab docs under More)
 # preview: optional short line shown before expanding (auto: first paragraph if omitted)
 # logo: institutions/name.png  (under assets/img/)  — or /assets/img/institutions/name.png
 #
@@ -29,6 +30,7 @@ entries:
     title: Research Intern - AI (Bachelor Thesis)
     org: Indian Institute of Science, Bangalore
     logo: institutions/iisc.png
+    project: iisc-ultrasound-pose-estimation
     from: "December 2025"
     to_present: true
     summary: |
@@ -42,6 +44,7 @@ entries:
     title: Summer Project Intern
     org: CfHE, IIT Hyderabad
     logo: institutions/iit-hyderabad.png
+    project: iit-hyderabad-dysgraphia
     from_month: June
     from_year: 2025
     to_month: July
@@ -53,6 +56,7 @@ entries:
     title: Research Intern
     org: KLIV Lab, IIT Kharagpur
     logo: institutions/iit-kharagpur.png
+    project: iit-kharagpur-attractor-reconstruction
     from_month: April
     from_year: 2025
     to_month: October
@@ -68,6 +72,7 @@ entries:
     title: Clinical Diagnostics Project Intern
     org: Philips 
     logo: institutions/philips.svg
+    project: philips-liver-segmentation
     from_month: April
     from_year: 2025
     to_month: July
