@@ -11,7 +11,7 @@ ninja.data = [{
     },
   },{id: "nav-work",
           title: "Work",
-          description: "",
+          description: "Deep learning projects in 3D medical imaging, time-series modeling, computer vision, graphs, and NLP.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
