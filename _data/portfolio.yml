@@ -1,8 +1,22 @@
 # Portfolio content — keep copy short and scannable.
 
 hero:
-  role: Research Intern - AI at IISc Bangalore
-  subtitle: computer vision and medical imaging focused data science engineer and researcher
+  role: B.Tech Data Science & Engineering · Graduating Aug 2026
+  subtitle: ML engineer building end-to-end deep learning pipelines across 3D vision, medical imaging, graphs, and NLP.
+
+institutions:
+  label: Technical Footprint
+  items:
+    - name: IISc Bangalore
+      logo: /assets/img/institutions/iisc.png
+    - name: Philips
+      logo: /assets/img/institutions/philips.svg
+    - name: IIT Kharagpur
+      logo: /assets/img/institutions/iit-kharagpur.png
+    - name: IIT Hyderabad
+      logo: /assets/img/institutions/iit-hyderabad.png
+    - name: MIT Manipal
+      logo: /assets/img/institutions/manipal.png
 
 buttons:
   work:
@@ -14,6 +28,13 @@ buttons:
   cv_page:
     label: CV
     url: /cv/
+
+work:
+  label: >-
+    Research internships, industry work, and coursework in deep learning - from self-supervised 3D ultrasound
+    reconstruction and radiology-guided liver segmentation to hippocampal MRI volumetry, dynamical time-series
+    modeling, handwriting-based dysgraphia screening, graph neural networks, and transformer NLP.
+  note: Each project includes a brief case study with metrics and links to code where available.
 
 nav:
   cta:
@@ -58,4 +79,8 @@ project_filters:
 
 pages:
   work:
-    intro: Selected projects with brief case studies. Metrics and code where available.
+    label: >-
+      Research internships, industry work, and coursework in deep learning—from self-supervised 3D ultrasound
+      reconstruction and radiology-guided liver segmentation to hippocampal MRI volumetry, dynamical time-series
+      modeling, handwriting-based dysgraphia screening, graph neural networks, and transformer NLP.
+    note: Each project includes a brief case study with metrics and links to code where available.

@@ -11,6 +11,7 @@ body.portfolio-site {
   background-image: none;
   color: var(--doss-text-dark);
   font-family: var(--doss-font-main);
+  scroll-behavior: smooth;
 
   // Page width / centering: al-folio uses Bootstrap .container (15px side padding,
   // margin auto) plus _layout.scss max-width from site.max_width — not overridden here.
@@ -232,7 +233,136 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass {
 // —— Hero (doss .hero-section) ——
 
 .doss-page .hero-section {
-  padding: clamp(2rem, 5vw, 3rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+.doss-page.doss-page--centered {
+  text-align: center;
+
+  .intro-section p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-list {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    display: inline-block;
+  }
+
+  .stack-strip__list {
+    justify-content: center;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .about-block {
+    text-align: center;
+  }
+
+  // Hero layout + vertical rhythm
+  .hero-section {
+    display: flex;
+    justify-content: center;
+    padding: clamp(1.75rem, 4.5vw, 2.75rem) 0 0;
+  }
+
+  .hero-contact-band {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: clamp(2rem, 5vw, 3rem) 0;
+  }
+
+  .hero.hero--centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 38rem;
+    margin: 0 auto;
+    text-align: center;
+    grid-template-columns: none;
+    gap: 0;
+  }
+
+  .hero__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero__title,
+  .hero__role,
+  .hero__desc {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .hero__title {
+    max-width: none;
+    margin-bottom: 0.625rem;
+  }
+
+  .hero__role {
+    max-width: none;
+    margin-bottom: 0.75rem;
+    white-space: nowrap;
+    font-size: clamp(0.875rem, 2.5vw, 1.1875rem);
+  }
+
+  .hero__desc {
+    max-width: 32rem;
+    margin-bottom: 0;
+  }
+
+  .hero__actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .hero__links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-top: none;
+    padding-top: 0;
+    margin: 0;
+  }
+
+  .portfolio-social-links {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  // Logos → body
+  .logo-strip--impact {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+
+    .logo-strip__label {
+      margin-bottom: 1.125rem;
+    }
+  }
+
+  .portfolio-body--centered {
+    padding-top: clamp(1.5rem, 4vw, 2.25rem);
+  }
+
+  .intro-section {
+    padding-top: 0;
+  }
 }
 
 .doss-page .hero {
@@ -247,31 +377,34 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass {
 }
 
 .doss-page .hero__title {
+  font-family: var(--doss-font-main);
   font-size: var(--doss-display-size);
   font-weight: 500;
   line-height: var(--doss-display-lh);
   letter-spacing: var(--doss-display-ls);
   color: var(--doss-text-dark);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.625rem;
   max-width: none;
 }
 
 .doss-page .hero__role {
-  font-size: clamp(0.95rem, 1.8vw, 1.0625rem);
-  font-weight: 500;
+  font-family: var(--doss-font-main);
+  font-size: var(--doss-lede-size);
+  line-height: var(--doss-lede-lh);
+  font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--doss-text-grey-1);
-  margin: -0.5rem 0 1rem;
-  max-width: 28rem;
-  line-height: 1.45;
+  margin: 0 0 1rem;
+  max-width: 34rem;
 }
 
 .doss-page .hero__desc {
+  font-family: var(--doss-font-main);
   font-size: var(--doss-body-size);
   line-height: var(--doss-body-lh);
   color: var(--doss-text-grey-1);
-  margin: 0 0 0.25rem;
-  max-width: 32rem;
+  margin: 0;
+  max-width: 36rem;
 }
 
 .doss-page .hero__desc-group {
@@ -284,8 +417,8 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 2rem;
-  padding-top: 0.25rem;
+  margin-top: 1.5rem;
+  padding-top: 0;
 }
 
 .portfolio-social-links {
@@ -339,6 +472,12 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--doss-border);
+}
+
+.doss-page.doss-page--centered .hero__links {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
 }
 
 .doss-page .hero__media {
@@ -485,8 +624,8 @@ body.portfolio-site .page-actions + .contact-cta {
   color: var(--doss-text-grey-1);
 
   p {
-    margin-bottom: 1rem;
-    max-width: 38rem;
+    margin-bottom: 1.15rem;
+    max-width: 40rem;
   }
 
   a {
@@ -661,7 +800,7 @@ body.portfolio-site .post:not(.doss-page) {
 
 }
 
-// —— Projects (doss .products-section list) ——
+// —— Projects (work page) ——
 
 body.portfolio-site .projects {
   .project-card {
@@ -684,9 +823,10 @@ body.portfolio-site .projects {
   }
 
   .card-text {
-    font-size: var(--doss-caption-size);
+    font-size: 0.875rem;
+    line-height: 1.55;
     color: var(--doss-text-grey-1);
-    margin: 0;
+    margin: 0 0 0.75rem;
   }
 }
 

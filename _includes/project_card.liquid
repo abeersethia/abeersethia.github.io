@@ -29,7 +29,10 @@
     {% if project.metrics %}
       <ul class="project-card__metrics">
         {% for m in project.metrics %}
-          <li><span class="project-card__metric-value">{{ m.value }}</span> {{ m.label }}</li>
+          <li class="project-card__metric">
+            <span class="project-card__metric-value">{{ m.value }}</span>
+            <span class="project-card__metric-label">{{ m.label }}</span>
+          </li>
         {% endfor %}
       </ul>
     {% endif %}

@@ -2,14 +2,19 @@
 layout: page
 title: Work
 permalink: /projects/
-description:
+description: Deep learning projects in 3D medical imaging, time-series modeling, computer vision, graphs, and NLP.
 nav: true
 nav_order: 2
 horizontal: true
 ---
 
 <div class="work-page">
-  <p class="work-page__label">Selected Projects in Medical Imaging, CV, GNNs and More</p>
+  <div class="work-page__intro">
+    <p class="work-page__label">{{ site.data.portfolio.work.label }}</p>
+    {% if site.data.portfolio.work.note %}
+      <p class="work-page__label work-page__label--note">{{ site.data.portfolio.work.note }}</p>
+    {% endif %}
+  </div>
   <hr class="work-page__rule" aria-hidden="true">
   {% include project_filters.liquid %}
 

@@ -6,6 +6,6 @@ permalink: /
 social: true
 ---
 
-I am an undergraduate at [Manipal Institute of Technology](https://www.manipal.edu/mit.html) (Data Science & Engineering, minor in Multimodal Intelligent Systems), building **medical imaging and computer vision systems** for research and clinical-adjacent settings.
+B.Tech candidate at [Manipal Institute of Technology](https://www.manipal.edu/mit.html) (Data Science & Engineering, minor in Multimodal Intelligent Systems). I build **end-to-end ML pipelines** — data curation, model training, evaluation, and deployment-minded integration.
 
-I have worked extensively across computer vision, medical imaging, and deep learning through research internships at [IISc Bangalore](https://iisc.ac.in), [KLIV Lab, IIT Kharagpur](https://iitkliv.github.io), [CfHE, IIT Hyderabad](https://cfhe.org.in), and [Philips Innovation Campus, Bangalore](https://www.careers.philips.com/in/en/philips-innovation-campus--bangalore). My experience includes building clinical-grade segmentation systems for CT/MRI imaging, developing self-supervised ultrasound registration, pose estimation and 3D reconstruction models, and reconstructing nonlinear dynamical systems using deep learning and topology-preserving losses.
+Internships at [IISc Bangalore](https://iisc.ac.in), [Philips Innovation Campus](https://www.careers.philips.com/in/en/philips-innovation-campus--bangalore), [KLIV Lab, IIT Kharagpur](https://iitkliv.github.io), and [CfHE, IIT Hyderabad](https://cfhe.org.in): **3D segmentation** (CT/MRI), **self-supervised sequence modeling** (pose + volumetric reconstruction), **graph neural networks**, and **NLP transformers**.

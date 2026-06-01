@@ -8,7 +8,7 @@ middle_name:
 last_name: Sethia
 contact_note:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Portfolio of Abeer Sethia — computer vision, medical imaging, and data science.
+  Abeer Sethia — ML engineer building end-to-end deep learning systems across 3D vision, medical imaging, graphs, and NLP.
 footer_text:
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)

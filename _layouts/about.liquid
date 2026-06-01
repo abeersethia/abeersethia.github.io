@@ -2,9 +2,9 @@
 layout: default
 ---
 {% assign p = site.data.portfolio %}
-<div class="post portfolio-home doss-page">
+<div class="post portfolio-home doss-page doss-page--centered">
   <section class="hero-section" aria-label="Introduction">
-    <div class="hero">
+    <div class="hero hero--centered">
       <div class="hero__text">
         <h1 class="hero__title">
           {% if site.title == 'blank' %}
@@ -19,37 +19,21 @@ layout: default
         <p class="hero__desc">{{ p.hero.subtitle }}</p>
         <div class="hero__actions">
           <a class="btn-doss btn-doss--primary" href="{{ p.buttons.work.url | relative_url }}">{{ p.buttons.work.label }}</a>
-          <a class="btn-doss btn-doss--ghost" href="{{ p.buttons.cv.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ p.buttons.cv.label }}</a>
+          <a class="btn-doss btn-doss--primary" href="{{ p.buttons.cv.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ p.buttons.cv.label }}</a>
         </div>
-        {% if page.social %}
-          <div class="hero__links portfolio-social-links">{% include portfolio_social_links.liquid %}</div>
-        {% endif %}
       </div>
-      {% if page.profile and page.profile.image %}
-        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-        {% if page.profile.image contains '.svg' %}
-          <div class="hero__media hero__media--illustration">
-            <img
-              class="hero__illustration-img"
-              src="{{ profile_image_path | relative_url | bust_file_cache }}"
-              width="600"
-              height="600"
-              alt="Illustration of Abeer Sethia at a laptop"
-              loading="eager"
-              decoding="async"
-            >
-          </div>
-        {% else %}
-          <div class="hero__media">
-            {% capture sizes %}(min-width: 768px) 180px, 40vw{% endcapture %}
-            {% include figure.liquid loading="eager" path=profile_image_path class="hero__photo img-fluid" sizes=sizes alt=page.profile.image cache_bust=true %}
-          </div>
-        {% endif %}
-      {% endif %}
     </div>
   </section>
 
-  <article class="portfolio-body">
+  {% if page.social %}
+    <div class="hero-contact-band">
+      <div class="hero__links portfolio-social-links">{% include portfolio_social_links.liquid %}</div>
+    </div>
+  {% endif %}
+
+  {% include logo-strip.liquid %}
+
+  <article class="portfolio-body portfolio-body--centered">
     <section class="intro-section" id="intro">
       <div class="clearfix">{{ content }}</div>
     </section>
