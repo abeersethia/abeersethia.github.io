@@ -98,6 +98,10 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
+      - name: Refresh CSS cache keys in HTML 🔄
+        run: |
+          HASH=$(md5sum _site/assets/css/main.css | cut -c1-12)
+          find _site -type f -name '*.html' -exec sed -i "s|/assets/css/main.css?v=[^\"'&]*|/assets/css/main.css?v=${HASH}|g" {} +
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
