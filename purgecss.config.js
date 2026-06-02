@@ -15,6 +15,7 @@ module.exports = {
       /^journey-page/,
       /^btn-doss/,
       /^doss-page/,
+      /^stack-strip/,
     ],
   },
 };
