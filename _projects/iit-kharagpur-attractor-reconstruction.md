@@ -25,20 +25,15 @@ ppt:
 ---
 
 ## Summary
-
-Research internship at the **KLIV Lab, IIT Kharagpur**, on reconstructing **time series from attractor manifolds** using **temporal convolutional networks (TCNs)**—connecting nonlinear dynamics, signal processing, and deep learning for faithful recovery of system trajectories from embedded states.
+Research internship at the KLIV Lab, IIT Kharagpur, on reconstructing time series from attractor manifolds using temporal convolutional networks (TCNs). The work connects nonlinear dynamics, signal processing, and deep learning for recovering system trajectories from embedded states.
 
 ## Context
-
-**Setting:** Many physiological and engineered systems exhibit low-dimensional structure in reconstructed phase space (delay embedding / attractor views). Recovering the original time domain from manifold representations is useful for forecasting, denoising, and comparing models against dynamical systems theory.
+**Setting:** Many physiological and engineered systems have low-dimensional structure in reconstructed phase space (delay embedding and attractor views). Recovering the original time domain from manifold representations is useful for forecasting, denoising, and comparing models against dynamical systems theory.
 
 **Supervisors:** [Dr. Debdoot Sheet](https://facweb.iitkgp.ac.in/~debdoot/) and [Mr. Dipayan Dewan](https://scholar.google.com/citations?user=nUlXiXoAAAAJ&hl=en).
 
 ## Challenge
-
-**Situation:** Manifold embeddings discard some temporal ordering cues; naive decoders can smear dynamics or violate topology.
-
-**Task:** Design a **TCN-based reconstruction** pipeline that maps attractor samples back to consistent time-series segments, with losses that preserve dynamical structure where possible (including topology-aware objectives explored in the project).
+Manifold embeddings discard some temporal ordering cues, and naive decoders can smear dynamics or violate topology. The task was to design a TCN-based reconstruction pipeline that maps attractor samples back to consistent time-series segments, with losses that preserve dynamical structure where possible, including topology-aware objectives explored during the project.
 
 {% include figure.liquid
   path="assets/img/projects/iit-kharagpur-attractor-manifold-diagram.png"
@@ -49,19 +44,14 @@ Research internship at the **KLIV Lab, IIT Kharagpur**, on reconstructing **time
 %}
 
 ## Approach
-
-1. **Embedding & preprocessing** — Build attractor representations from multivariate series; fix windowing, delay parameters, and normalization per dataset release.
-2. **Model** — Temporal CNN stacks with receptive fields matched to the intrinsic timescale of each benchmark system.
-3. **Training objectives** — Combine reconstruction error with constraints informed by nonlinear dynamics (e.g., topology-preserving terms where applicable).
-4. **Evaluation** — Compare against baselines on held-out trajectories; report error in time domain and stability under noise.
+1. **Embedding and preprocessing** - Build attractor representations from multivariate series; fix windowing, delay parameters, and normalization per dataset release.
+2. **Model** - Temporal CNN stacks with receptive fields matched to the intrinsic timescale of each benchmark system.
+3. **Training objectives** - Combine reconstruction error with constraints from nonlinear dynamics (topology-preserving terms where applicable).
+4. **Evaluation** - Compare against baselines on held-out trajectories; report error in the time domain and stability under noise.
 
 ## Results
-
 - Reproducible training and evaluation scripts with logged hyperparameters and checkpoint selection rules.
-- Demonstrated recovery of key dynamical features on project benchmarks—quantitative tables versioned with each model release.
+- Demonstrated recovery of key dynamical features on project benchmarks; quantitative tables versioned with each model release.
 
 ## Impact
-
-Bridges **dynamical systems** thinking and **deep sequence models** at KLIV: a template for asking whether reconstructed series remain physically plausible, not only low MSE.
-
-## Links
+A practical template for asking whether reconstructed series remain physically plausible, not only low-MSE. The work sits at the intersection of dynamical systems thinking and deep sequence models, which is less common in standard ML pipelines and was the main research interest at KLIV.

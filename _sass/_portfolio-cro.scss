@@ -993,65 +993,6 @@ body.portfolio-site.fixed-top-nav:not(:has(.portfolio-header)) {
     text-justify: inter-word;
   }
 
-  &__body {
-    text-align: justify;
-    text-justify: inter-word;
-
-    p,
-    li,
-    blockquote {
-      text-align: justify;
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      text-align: left;
-      scroll-margin-top: var(--case-study-scroll-offset, 5.5rem);
-    }
-
-    .case-study-figure {
-      display: block;
-      clear: both;
-      float: none;
-      width: 100%;
-      max-width: min(34rem, 88%);
-      margin: 1.75rem auto;
-      padding: 0;
-      text-align: center;
-
-      picture {
-        display: block;
-        float: none;
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      img,
-      .case-study-figure__img {
-        display: block;
-        float: none;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0 auto;
-      }
-
-      figcaption.caption {
-        display: block;
-        float: none;
-        clear: both;
-        margin: 0.65rem 0 0;
-        font-size: 0.8125rem;
-        line-height: 1.45;
-        color: var(--doss-text-grey-1);
-        text-align: center;
-      }
-    }
-  }
-
   &__metrics {
     list-style: none;
     margin: 0 0 1.25rem;
@@ -1096,8 +1037,57 @@ body.portfolio-site.fixed-top-nav:not(:has(.portfolio-header)) {
   }
 
   &__body {
+    --case-study-prose-width: 40rem;
+
     font-size: var(--doss-body-size);
     line-height: var(--doss-body-lh);
+    text-align: justify;
+    text-justify: inter-word;
+
+    // Shared measure: paragraphs, lists, and figures align on the same right edge
+    > p,
+    > blockquote,
+    > ol,
+    > ul,
+    > .case-study-figure {
+      max-width: var(--case-study-prose-width);
+      width: 100%;
+    }
+
+    > p,
+    > blockquote,
+    > li {
+      text-align: justify;
+    }
+
+    > p {
+      margin: 0 0 1rem;
+    }
+
+    > ol,
+    > ul {
+      margin: 0 0 1rem;
+      padding-inline-start: 1.25em;
+      padding-inline-end: 0;
+    }
+
+    > li {
+      max-width: none;
+      margin-bottom: 0.35em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-align: left;
+      scroll-margin-top: var(--case-study-scroll-offset, 5.5rem);
+    }
 
     h2 {
       font-size: 1.125rem;
@@ -1107,18 +1097,54 @@ body.portfolio-site.fixed-top-nav:not(:has(.portfolio-header)) {
       letter-spacing: -0.02em;
     }
 
-    p,
-    li {
-      max-width: 40rem;
-    }
-
-    blockquote {
+    > blockquote {
       margin: 1.25rem 0;
       padding: 0.85rem 1rem;
       border-left: 2px solid var(--doss-accent);
       border-radius: 0 var(--doss-radius-chip) var(--doss-radius-chip) 0;
       background: var(--doss-bg-light-2);
       font-size: 0.9rem;
+    }
+
+    > .case-study-figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      clear: both;
+      float: none;
+      margin: 1.75rem 0;
+      padding: 0;
+      text-align: center;
+
+      picture {
+        display: block;
+        float: none;
+        width: auto;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      img,
+      .case-study-figure__img {
+        display: block;
+        float: none;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+      }
+
+      figcaption.caption {
+        display: block;
+        float: none;
+        clear: both;
+        width: 100%;
+        margin: 0.65rem 0 0;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+        color: var(--doss-text-grey-1);
+        text-align: center;
+      }
     }
   }
 }
