@@ -437,6 +437,11 @@ ninja.data = [{
           description: "Clinical-style 3D segmentation of liver lesions in CT and MRI with radiology-guided labels—Philips Innovation Campus, Bangalore.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/philips-liver-segmentation/";
+            },},{id: "projects-rag-based-chatbot-for-research-papers",
+          title: 'RAG-based Chatbot for Research Papers',
+          description: "RAG pipeline that indexes PDF research papers and answers questions with source citations via Streamlit and CLI.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/rag-chatbot-research-papers/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
