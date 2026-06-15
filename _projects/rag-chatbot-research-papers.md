@@ -37,6 +37,14 @@ Design an end-to-end pipeline that:
 4. **Interfaces** - Streamlit app (`app.py`) for browser-based chat; CLI (`chat_interface.py`) with history, sources, and help commands.
 5. **Indexing CLI** - `main.py` indexes bundled sample papers (YOLO, Medical) or custom PDFs via `--pdf` and `--name` flags.
 
+{% include figure.liquid
+  path="assets/img/projects/rag-chatbot-research-papers-demo.png"
+  figure_class="case-study-figure"
+  class="case-study-figure__img"
+  alt="Streamlit chat interface for the RAG research paper chatbot"
+  caption="Streamlit UI - Answer on YOLO architecture with expandable source citations."
+%}
+
 ## Result
 
 | Component | Choice | Role |
