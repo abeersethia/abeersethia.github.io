@@ -31,7 +31,8 @@ entries:
     org: Origin Medical Research Lab
     logo: institutions/omrl.png
     project: real-time-ultrasound-exam-assistant
-    from: "September 2026"
+    from_month: September
+    from_year: 2026
     to_present: true
     summary: Real-time Ultrasound Exam Assistant 
     open: false
@@ -41,8 +42,10 @@ entries:
     org: Indian Institute of Science, Bangalore
     logo: institutions/iisc.png
     project: iisc-ultrasound-pose-estimation
-    from: "December 2025"
-    to_present: true
+    from_month: December
+    from_year: 2025
+    to_month: July
+    to_year: 2026
     summary: |
       Project - "Self-Supervised Temporal Ultrasound Pose Estimation under Limited Pose Supervision for Trackerless Freehand 3D Reconstruction"
 
