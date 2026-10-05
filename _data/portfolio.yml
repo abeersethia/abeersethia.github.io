@@ -7,6 +7,8 @@ hero:
 institutions:
   label: Technical Footprint
   items:
+    - name: Origin Medical Research Lab
+      logo: /assets/img/institutions/omrl.png
     - name: IISc Bangalore
       logo: /assets/img/institutions/iisc.png
     - name: Philips
