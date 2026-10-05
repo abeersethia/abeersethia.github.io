@@ -26,6 +26,16 @@ filters:
     label: Projects
 
 entries:
+  - category: industry
+    title: AI Research Intern 
+    org: Origin Medical Research Lab
+    logo: institutions/omrl.png
+    project: real-time-ultrasound-exam-assistant
+    from: "September 2026"
+    to_present: true
+    summary: Real-time Ultrasound Exam Assistant 
+    open: false
+
   - category: research
     title: Research Intern - AI (Bachelor Thesis)
     org: Indian Institute of Science, Bangalore
