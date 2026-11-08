@@ -2,53 +2,146 @@
 layout: default
 ---
 {% assign p = site.data.portfolio %}
-<div class="post portfolio-home doss-page doss-page--centered">
-  <section class="hero-section" aria-label="Introduction">
-    <div class="hero hero--centered">
-      <div class="hero__text">
-        <h1 class="hero__title">
-          {% if site.title == 'blank' %}
-            {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}
-          {% else %}
-            {{ site.title }}
-          {% endif %}
-        </h1>
-        {% if p.hero.role %}
-          <p class="hero__role">{{ p.hero.role }}</p>
-        {% endif %}
-        <p class="hero__desc">{{ p.hero.subtitle }}</p>
-        <div class="hero__actions">
-          <a class="btn-doss btn-doss--primary" href="{{ p.buttons.work.url | relative_url }}">{{ p.buttons.work.label }}</a>
-          <a class="btn-doss btn-doss--primary" href="{{ p.buttons.cv.url | relative_url }}" target="_blank" rel="noopener noreferrer">{{ p.buttons.cv.label }}</a>
-        </div>
-      </div>
+{% assign s = site.data.socials %}
+{% assign h = p.home %}
+{% assign featured_limit = h.featured_count | default: 4 %}
+{% assign experience_limit = h.experience_count | default: 6 %}
+<div class="post portfolio-home doss-page home">
+  <header class="home-header">
+    <h1 class="home-header__name">
+      {% if site.title == 'blank' %}
+        {{ site.first_name -}}
+        {%- if site.middle_name %} {{ site.middle_name }}{% endif %}
+        {{ site.last_name }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </h1>
+    {% if p.hero.subtitle %}
+      <p class="home-header__tagline">{{ p.hero.subtitle }}</p>
+    {% endif %}
+  </header>
+
+  <section class="home-intro{% unless h.portrait %} home-intro--no-portrait{% endunless %}" aria-label="Introduction">
+    {% if h.portrait %}
+      <img
+        class="home-intro__portrait"
+        src="{{ h.portrait | relative_url }}"
+        alt="Portrait of {{ site.first_name }} {{ site.last_name }}"
+        width="180"
+        height="240"
+        loading="eager"
+        decoding="async"
+      >
+    {% endif %}
+    <div class="home-intro__text">
+      {% if p.hero.role %}
+        <p class="home-intro__role">Now — {{ p.hero.role }}</p>
+      {% endif %}
+      <div class="home-intro__bio">{{ content }}</div>
+      <p class="home-intro__links">
+        {% if s.cv_pdf -%}
+          <a href="{{ s.cv_pdf | relative_url }}" target="_blank" rel="noopener noreferrer">Resume</a>
+        {%- endif %}
+        {% if s.email -%}
+          <a href="mailto:{{ s.email }}">Email</a>
+        {%- endif %}
+        {% if s.github_username -%}
+          <a href="https://github.com/{{ s.github_username }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        {%- endif %}
+        {% if s.linkedin_url -%}
+          <a href="{{ s.linkedin_url }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        {%- endif %}
+      </p>
     </div>
   </section>
 
-  {% if page.social %}
-    <div class="hero-contact-band">
-      <div class="hero__links portfolio-social-links">{% include portfolio_social_links.liquid %}</div>
-    </div>
-  {% endif %}
-
   {% include logo-strip.liquid %}
 
-  <article class="portfolio-body portfolio-body--centered">
-    <section class="intro-section" id="intro">
-      <div class="clearfix">{{ content }}</div>
-    </section>
+  {% comment %} Featured work: projects marked `featured: true`, else top by importance. {% endcomment %}
+  {% assign featured = site.projects | where: 'featured', true | sort: 'importance' | reverse %}
+  {% if featured.size == 0 %}
+    {% assign featured = site.projects | where_exp: 'x', 'x.listed != false' | sort: 'importance' | reverse %}
+  {% endif %}
+  <section class="home-section" aria-labelledby="home-work-heading">
+    <div class="home-section__heading">
+      <h2 id="home-work-heading">Featured work</h2>
+      <div class="home-section__links">
+        <a href="{{ '/projects/' | relative_url }}">All work</a>
+        {% if s.github_username %}
+          <a href="https://github.com/{{ s.github_username }}" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a
+          >
+        {% endif %}
+      </div>
+    </div>
+    <div class="home-list home-list--work">
+      {% for project in featured limit: featured_limit %}
+        {% include project_category_slugs.liquid project=project %}
+        <a class="home-list__row" href="{{ project.url | relative_url }}">
+          <span class="home-list__main">
+            {% if project_cat_label != '' -%}
+              <span class="home-list__kicker">{{ project_cat_label }}</span>
+            {%- endif %}
+            <span class="home-list__title">{{ project.title }}</span>
+          </span>
+          <span class="home-list__desc">{{ project.description }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
 
-    {% include stack-strip.liquid %}
-
-    {% if p.current_focus %}
-      <section class="about-block" id="focus" aria-labelledby="focus-heading">
-        <h2 class="section-title" id="focus-heading">Current focus</h2>
-        <ul class="about-list">
-          {% for item in p.current_focus %}
-            <li>{{ item }}</li>
+  {% assign journey = site.data.journey.entries %}
+  {% assign month_full = 'January,February,March,April,May,June,July,August,September,October,November,December' | split: ',' %}
+  {% assign month_short = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec' | split: ',' %}
+  {% if journey %}
+    <section class="home-section" aria-labelledby="home-exp-heading">
+      <div class="home-section__heading">
+        <h2 id="home-exp-heading">Experience</h2>
+        <div class="home-section__links">
+          <a href="{{ '/journey/' | relative_url }}">Full journey</a>
+        </div>
+      </div>
+      <div class="home-list home-list--dated">
+        {% for entry in journey limit: experience_limit %}
+          {% assign entry_project = null %}
+          {% if entry.project %}
+            {% assign entry_project = site.projects | where: 'slug', entry.project | first %}
+          {% endif %}
+          {% if entry_project %}
+            <a class="home-list__row" href="{{ entry_project.url | relative_url }}">
+          {% else %}
+            <div class="home-list__row">
+          {% endif %}
+          {% capture entry_dates %}{% include journey-date.liquid entry=entry %}{% endcapture %}
+          {% for m in month_full %}
+            {% assign entry_dates = entry_dates | replace: m, month_short[forloop.index0] %}
           {% endfor %}
-        </ul>
-      </section>
-    {% endif %}
-  </article>
+          <span class="home-list__date">{{ entry_dates | strip }}</span>
+          <span class="home-list__main">
+            <span class="home-list__title">{{ entry.title | strip }}</span>
+            <span class="home-list__desc">{{ entry.org | strip }}</span>
+          </span>
+          {% if entry_project %}
+            </a>
+          {% else %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if p.stack and p.stack.size > 0 %}
+    <section class="home-section" aria-labelledby="home-stack-heading">
+      <div class="home-section__heading">
+        <h2 id="home-stack-heading">Tools</h2>
+      </div>
+      <ul class="home-stack">
+        {% for tool in p.stack %}
+          <li>{{ tool }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
 </div>

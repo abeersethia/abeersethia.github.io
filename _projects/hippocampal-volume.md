@@ -4,7 +4,7 @@ title: Hippocampal volume quantification in Alzheimer's progression
 description: End-to-end AI pipeline from curated MRI to automated hippocampal volumetry, with a path to DICOM-based clinical workflows.
 importance: 1
 category: personal
-img: assets/img/1.jpg
+img: assets/img/1.png
 github: https://github.com/abeersethia/Hippocampal_Volume_Quantification_in_Alzheimers_Progression
 metrics:
   - label: Dice (mean)

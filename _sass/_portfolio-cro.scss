@@ -650,6 +650,22 @@ body.portfolio-site .post:has(.work-page) {
   opacity: 0.65;
 }
 
+.journey-entry__period {
+  white-space: nowrap;
+}
+
+// Phones: org and dates on separate lines instead of a wrapped "•" row
+@media (max-width: 575.98px) {
+  .journey-entry__org,
+  .journey-entry__period {
+    display: block;
+  }
+
+  .journey-entry__sep {
+    display: none;
+  }
+}
+
 .journey-entry__teaser {
   margin: 0;
   max-width: 40rem;
@@ -1097,6 +1113,41 @@ body.portfolio-site.fixed-top-nav:not(:has(.portfolio-header)) {
       letter-spacing: -0.02em;
     }
 
+    // Sub-sections sit below h2 in the hierarchy
+    h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 1.75rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+      color: var(--doss-text-grey-1);
+    }
+
+    // Data tables: prose width, hairline rows, horizontal scroll when narrow
+    > table {
+      display: block;
+      max-width: var(--case-study-prose-width);
+      overflow-x: auto;
+      margin: 1.25rem 0 1.5rem;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      line-height: 1.45;
+      text-align: left;
+
+      th,
+      td {
+        padding: 0.5rem 0.75rem 0.5rem 0;
+        border-bottom: 1px solid var(--doss-border);
+        vertical-align: top;
+      }
+
+      th {
+        font-weight: 500;
+        color: var(--doss-text-grey-1);
+        white-space: nowrap;
+      }
+    }
+
     > blockquote {
       margin: 1.25rem 0;
       padding: 0.85rem 1rem;
@@ -1503,6 +1554,12 @@ html[data-theme="dark"] .case-study__body blockquote {
   .case-study__sidebar-col {
     display: none;
   }
+
+  // Columns have no gutter padding, so cancel .row's -15px pull to stay aligned with the header
+  .case-study__layout {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 // —— Scroll reveal (pillars) ——
@@ -1519,5 +1576,17 @@ html[data-theme="dark"] .case-study__body blockquote {
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+// Phones: justified text opens wide word gaps in narrow columns
+@media (max-width: 575.98px) {
+  .case-study__lede,
+  .case-study__body,
+  .case-study__body > p,
+  .case-study__body > blockquote,
+  .case-study__body li {
+    text-align: left;
+    hyphens: auto;
   }
 }

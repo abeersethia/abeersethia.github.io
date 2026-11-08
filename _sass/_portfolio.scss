@@ -50,7 +50,10 @@ body.portfolio-site {
   vertical-align: middle;
   -webkit-appearance: none;
   appearance: none;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
 
   &:focus-visible {
     outline: 2px solid var(--doss-accent);
@@ -435,7 +438,9 @@ html[data-theme="dark"] body.portfolio-site .navbar.navbar--glass {
     text-decoration: none;
     border: none;
     line-height: 1;
-    transition: color 0.15s ease, opacity 0.15s ease;
+    transition:
+      color 0.15s ease,
+      opacity 0.15s ease;
 
     &:hover {
       color: var(--doss-text-dark);
@@ -573,7 +578,9 @@ html[data-theme="dark"] .doss-page .hero__illustration-img {
   padding-bottom: 0.25rem;
   border-bottom: 1px solid transparent;
   text-decoration: none !important;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 
   &:hover {
     color: var(--doss-text-dark);
@@ -797,7 +804,6 @@ body.portfolio-site .post:not(.doss-page) {
     font-size: var(--doss-body-size);
     line-height: var(--doss-body-lh);
   }
-
 }
 
 // —— Projects (work page) ——
@@ -830,13 +836,13 @@ body.portfolio-site .projects {
   }
 }
 
-// —— Footer ——
+// —— Footer (text-only links) ——
 
 body.portfolio-site footer.site-footer {
   background: var(--doss-bg-light-1);
-  color: var(--doss-text-grey-1);
+  color: var(--doss-text-grey-2);
   border-top: 1px solid var(--doss-border);
-  font-size: var(--doss-caption-size);
+  font-size: 0.78rem;
   margin-top: 1.25rem;
   padding-top: 0;
   padding-bottom: 0;
@@ -849,35 +855,48 @@ body.portfolio-site footer.site-footer {
 
   .site-footer__inner {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    text-align: center;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
   }
 
-  .site-footer__social {
-    justify-content: center;
-    gap: 1.25rem;
-    margin-bottom: 0.65rem;
+  .site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1rem;
+
+    a {
+      color: var(--doss-text-dark);
+      font-weight: 500;
+      border: none !important;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+    }
   }
 
   .site-footer__copy {
     margin: 0;
-    max-width: 36rem;
-    font-size: var(--doss-caption-size);
-    line-height: 1.55;
-    color: var(--doss-text-grey-1);
+    color: var(--doss-text-grey-2);
 
     a {
-      color: var(--doss-text-grey-1);
+      color: inherit;
       border: none;
       text-decoration: underline;
       text-underline-offset: 0.15em;
+    }
+  }
 
-      &:hover {
-        color: var(--doss-text-dark);
-      }
+  @media (max-width: 575.98px) {
+    .site-footer__inner {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 }

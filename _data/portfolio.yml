@@ -4,6 +4,13 @@ hero:
   role: AI Research Intern @ Origin Medical Research Lab
   subtitle: AI research engineer building end-to-end deep learning pipelines across 3D vision and medical imaging
 
+# Homepage (About) layout. Featured work uses projects with `featured: true`;
+# if none are marked, the top projects by `importance` are shown.
+home:
+  portrait: /assets/img/prof_pic.jpg
+  featured_count: 4
+  experience_count: 6
+
 institutions:
   label: Technical Footprint
   items:
@@ -58,11 +65,6 @@ stack:
   - NumPy
   - Docker
   - Git
-
-current_focus:
-  - Work at IISc - Trackerless Pose Estimation and 3D Reconstruction from B-Mode Ultrasound Image Sequences
-  - Personal (Ongoing) - Federated Learning for Medical Image Analysis
-  - Personal (Ongoing) - Portfolio Website
 
 # Filter ids must match slug(s) on each project. Use one or more per project:
 #   categories: [research, coursework]

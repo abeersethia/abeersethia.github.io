@@ -1,29 +1,44 @@
 {% capture footer_contents %}
-  <nav class="site-footer__social portfolio-social-links" aria-label="Social and contact links">
-    {% include portfolio_social_links.liquid %}
+  {% assign s = site.data.socials %}
+  <nav class="site-footer__links" aria-label="Contact and profiles">
+    {% if s.email %}<a href="mailto:{{ s.email }}">email</a>{% endif %}
+    {% if s.cv_pdf %}<a href="{{ s.cv_pdf | relative_url }}" target="_blank" rel="noopener noreferrer">resume</a>{% endif %}
+    {% if s.github_username %}<a href="https://github.com/{{ s.github_username }}" target="_blank" rel="noopener noreferrer">github</a>{% endif %}
+    {% if s.linkedin_url %}<a href="{{ s.linkedin_url }}" target="_blank" rel="noopener noreferrer">linkedin</a>{% endif %}
   </nav>
   <p class="site-footer__copy">
-    &copy; Copyright {{ site.time | date: '%Y' }}
+    &copy; {{ site.time | date: '%Y' }}
     {{ site.first_name }}
-    {{ site.middle_name }}
-    {{ site.last_name }}. {{ site.footer_text }}
+    {{ site.last_name }}
     {% if site.impressum_path %}
-      <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
+      · <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>
     {% endif %}
     {% if site.last_updated %}
-      Last updated: {{ 'now' | date: '%B %d, %Y' }}.
+      · Last updated {{ 'now' | date: '%b %Y' }}
     {% endif %}
   </p>
 {% endcapture %}
 
 {% if site.footer_fixed %}
-  <footer class="site-footer fixed-bottom" role="contentinfo"{% if site.enable_liquid_glass %} data-liquid-ignore{% endif %}>
+  <footer
+    class="site-footer fixed-bottom"
+    role="contentinfo"
+    {% if site.enable_liquid_glass %}
+      data-liquid-ignore
+    {% endif %}
+  >
     <div class="container mt-0 site-footer__inner">
       {{ footer_contents }}
     </div>
   </footer>
 {% else %}
-  <footer class="site-footer sticky-bottom mt-5" role="contentinfo"{% if site.enable_liquid_glass %} data-liquid-ignore{% endif %}>
+  <footer
+    class="site-footer sticky-bottom mt-5"
+    role="contentinfo"
+    {% if site.enable_liquid_glass %}
+      data-liquid-ignore
+    {% endif %}
+  >
     {% if site.newsletter.enabled %}
       {% include newsletter.liquid %}
     {% endif %}

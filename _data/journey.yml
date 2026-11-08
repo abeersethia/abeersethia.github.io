@@ -47,7 +47,7 @@ entries:
     to_month: July
     to_year: 2026
     summary: |
-      Project - "Self-Supervised Temporal Ultrasound Pose Estimation under Limited Pose Supervision for Trackerless Freehand 3D Reconstruction"
+      Project - "3D Freehand Ultrasound Pose Estimation for Trackerless Trajectory Reconstruction"
 
       - Supervised by [Dr. Manish Arora](https://dm.iisc.ac.in/utsaah/dr-manish-arora/) and [Ms. Saladi Pravallika (PMRF)](https://dm.iisc.ac.in/utsaah/saladi-pravallika/)
       - Python, OpenCV, PyTorch, 3D-Slicer, Weights & Biases, and [more](/projects/#research).
@@ -75,9 +75,9 @@ entries:
     to_month: October
     to_year: 2025
     summary: |
-      Project - "“Reconstruction of Time Series Data from Attractor Manifold using Temporal Convolutional Neural Network”
+      Project - “Reconstruction of Time Series Data from Attractor Manifold using Temporal Convolutional Neural Network”
 
-      - Supervised by [Dr. Debdoot Sheet](https://facweb.iitkgp.ac.in/~debdoot/),and [Mr. Dipayan Dewan](https://scholar.google.com/citations?user=nUlXiXoAAAAJ&hl=en)
+      - Supervised by [Dr. Debdoot Sheet](https://facweb.iitkgp.ac.in/~debdoot/) and [Mr. Dipayan Dewan](https://scholar.google.com/citations?user=nUlXiXoAAAAJ&hl=en)
       - Python, Signal Processing, Temporal CNNs, Non-Dynamical Systems and [more](/projects/#research).
     open: false
 
@@ -107,6 +107,7 @@ entries:
     to_year: 2026
     summary: |
       A+ In Minor In Multimodal Intelligent Systems - Project: DropEdge++ with Johnson–Lindenstrauss Projection under the guidance of Dr. Poornima Panduranga Kundapur
+
       B.Tech Thesis at IISc Bangalore - Advisors: Prof. Manish Arora and Ms. Saladi Pravallika (PMRF)
       
       - Expertise Head of Biotechnology Domain for Research Society Manipal.
