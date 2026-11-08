@@ -419,7 +419,7 @@ ninja.data = [{
               window.location.href = "/projects/hippocampal-volume/";
             },},{id: "projects-trackerless-ultrasound-pose-estimation-amp-3d-reconstruction",
           title: 'Trackerless ultrasound pose estimation &amp;amp; 3D reconstruction',
-          description: "Self-supervised temporal pose estimation from B-mode sequences for freehand 3D ultrasound—limited pose labels, clinical-style review paths.",
+          description: "B.Tech thesis at IISc - self-supervised, geometry-aware probe pose estimation that reconstructs freehand 3D ultrasound trajectories from B-mode images alone, with no external tracker.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/iisc-ultrasound-pose-estimation/";
             },},{id: "projects-dysgraphia-handwriting-analysis-pipeline",
