@@ -315,62 +315,114 @@
 }
 
 @media (max-width: 575.98px) {
-  // Tighter top: the container already adds mt-5 below the fixed navbar
+  // Centered profile on phones. The intro wrappers become `display: contents`
+  // so photo, header, role, links and bio can be reordered as flex items.
   .home {
+    display: flex;
+    flex-direction: column;
     padding-top: 0;
+
+    > * {
+      order: 6;
+      width: 100%;
+    }
   }
 
-  .home-header {
-    margin-bottom: 1.5rem;
+  .home-intro,
+  .home-intro__text {
+    display: contents;
   }
 
-  // Phone intro: photo beside role + stacked links, bio full width below
-  .home-intro {
-    grid-template-columns: 104px minmax(0, 1fr);
-    grid-template-areas:
-      "photo role"
-      "photo links"
-      "bio bio";
-    grid-template-rows: auto 1fr auto;
-    gap: 0 1rem;
-    margin-bottom: 2.25rem;
+  .home-intro__portrait {
+    order: 1;
+    align-self: center;
+    width: 156px;
+    margin: 0.25rem 0 1.25rem;
+    border-radius: 12px;
+  }
 
-    &__text {
-      display: contents;
-    }
+  .home .home-header {
+    order: 2;
+    margin-bottom: 0.4rem;
+    padding-bottom: 0;
+    border-bottom: none;
+    text-align: center;
+  }
 
-    &__portrait {
-      grid-area: photo;
-      width: 104px;
-    }
+  .home-header__name {
+    font-size: 2.1rem;
+  }
 
-    &__role {
-      grid-area: role;
-      margin: 0 0 0.5rem;
-      font-size: 0.72rem;
-      line-height: 1.45;
-    }
+  .home-header__tagline {
+    margin: 0 auto;
+    max-width: 22rem;
+  }
 
-    &__links {
-      grid-area: links;
-      flex-direction: column;
-      align-self: end;
-      gap: 0.3rem;
-      margin: 0;
+  .home-intro__role {
+    order: 3;
+    margin: 0.35rem auto 1.1rem;
+    max-width: 20rem;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    text-align: center;
+  }
 
-      a:not(:last-child)::after {
+  // Links as pill buttons
+  .home-intro__links {
+    order: 4;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0 0 1.75rem;
+
+    a {
+      padding: 0.45rem 0.95rem;
+      border: 1px solid var(--doss-border) !important;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      line-height: 1.2;
+
+      &:hover {
+        text-decoration: none;
+        background: var(--doss-bg-light-2);
+      }
+
+      &:not(:last-child)::after {
         content: none;
       }
     }
+  }
 
-    &__bio {
-      grid-area: bio;
-      margin-top: 1.25rem;
-    }
+  // Full bio, calmer: no link underlines, lighter emphasis
+  .home-intro__bio {
+    order: 5;
+    margin-bottom: 2.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--doss-border);
 
-    &__bio p {
+    p {
       font-size: 0.97rem;
       line-height: 1.65;
+    }
+
+    // Global link styles (_typography.scss) out-specify this; force it
+    a {
+      border-bottom: none !important;
+    }
+
+    strong {
+      font-weight: 500;
+    }
+  }
+}
+
+// Narrowest phones (iPhone SE): keep all four pills on one line
+@media (max-width: 359.98px) {
+  .home-intro__links {
+    gap: 0.35rem;
+
+    a {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.8125rem;
     }
   }
 
