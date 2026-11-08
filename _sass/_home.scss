@@ -314,12 +314,72 @@
   }
 }
 
-@media (max-width: 479.98px) {
+@media (max-width: 575.98px) {
+  // Tighter top: the container already adds mt-5 below the fixed navbar
+  .home {
+    padding-top: 0;
+  }
+
+  .home-header {
+    margin-bottom: 1.5rem;
+  }
+
+  // Phone intro: photo beside role + stacked links, bio full width below
   .home-intro {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 104px minmax(0, 1fr);
+    grid-template-areas:
+      "photo role"
+      "photo links"
+      "bio bio";
+    grid-template-rows: auto 1fr auto;
+    gap: 0 1rem;
+    margin-bottom: 2.25rem;
+
+    &__text {
+      display: contents;
+    }
 
     &__portrait {
-      width: 120px;
+      grid-area: photo;
+      width: 104px;
+    }
+
+    &__role {
+      grid-area: role;
+      margin: 0 0 0.5rem;
+      font-size: 0.72rem;
+      line-height: 1.45;
+    }
+
+    &__links {
+      grid-area: links;
+      flex-direction: column;
+      align-self: end;
+      gap: 0.3rem;
+      margin: 0;
+
+      a:not(:last-child)::after {
+        content: none;
+      }
+    }
+
+    &__bio {
+      grid-area: bio;
+      margin-top: 1.25rem;
+    }
+
+    &__bio p {
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+  }
+
+  // Separator dots dangle at line ends when the list wraps; use spacing instead
+  .home-stack {
+    gap: 0.45rem 1.1rem;
+
+    li:not(:last-child)::after {
+      content: none;
     }
   }
 }
