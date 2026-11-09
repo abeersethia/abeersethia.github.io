@@ -409,7 +409,7 @@ ninja.data = [{
               window.location.href = "/projects/bert-sandwich-former/";
             },},{id: "projects-dropedge-with-johnson-lindenstrauss-projection",
           title: 'DropEdge++ with Johnson–Lindenstrauss Projection',
-          description: "Minor project — structure-aware graph regularization and dimensionality reduction for scalable deep GCNs on citation networks.",
+          description: "Social Network Analysis project - structure-aware edge dropping plus Johnson–Lindenstrauss feature compression for deeper, cheaper GCNs on the Cora citation network.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/dropedge++/";
             },},{id: "projects-hippocampal-volume-quantification-in-alzheimer-39-s-progression",
@@ -429,12 +429,12 @@ ninja.data = [{
               window.location.href = "/projects/iit-hyderabad-dysgraphia/";
             },},{id: "projects-attractor-manifold-time-series-reconstruction",
           title: 'Attractor manifold time-series reconstruction',
-          description: "Reconstructing nonlinear dynamical time series from attractor embeddings using temporal convolutional networks—KLIV Lab, IIT Kharagpur.",
+          description: "KLIV Lab, IIT Kharagpur - recovering the full 3D Lorenz attractor from its X component alone, using Hankel delay embeddings and FNN-regularised autoencoders.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/iit-kharagpur-attractor-reconstruction/";
-            },},{id: "projects-expert-guided-liver-lesion-segmentation-ct-mri",
-          title: 'Expert-guided liver lesion segmentation (CT/MRI)',
-          description: "Clinical-style 3D segmentation of liver lesions in CT and MRI with radiology-guided labels—Philips Innovation Campus, Bangalore.",
+            },},{id: "projects-expert-guided-liver-lesion-segmentation-in-ct",
+          title: 'Expert-guided liver lesion segmentation in CT',
+          description: "Philips Medical Imaging Research Suite, Bangalore - AI-assisted liver lesion masks from nnU-Net, MedSAM and MedSAM2, refined under radiologist supervision into a clinically annotated CT dataset.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/philips-liver-segmentation/";
             },},{id: "projects-rag-based-chatbot-for-research-papers",
